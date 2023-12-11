@@ -22,7 +22,7 @@ export const Root = () => {
               <ul>
                 {quizNames.map((quizName) => (
                   <li key={quizName}>
-                    <Link to={`/${quizName}`}>{quizName}</Link>
+                    <Link to={`/${quizName}/question/1`}>{quizName}</Link>
                   </li>
                 ))}
               </ul>

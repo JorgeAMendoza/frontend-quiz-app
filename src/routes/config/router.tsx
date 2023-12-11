@@ -3,6 +3,7 @@ import { rootLoader } from '../root/loader'
 import { Root } from '../root/Root'
 import { Test } from '../Test/Test'
 import { testLoader } from '../Test/loader'
+import { TestQuestion } from '../TestQuestion/TestQuestion'
 
 export const router = createBrowserRouter([
   {
@@ -18,12 +19,12 @@ export const router = createBrowserRouter([
         element: <Test />,
         children: [
           {
-            path: ':test/question/:questionNumber',
-            element: <div>question element</div>,
+            path: 'question/:questionNumber',
+            element: <TestQuestion />,
             errorElement: <div>error to indicate invalid question</div>,
           },
           {
-            path: ':test/result',
+            path: 'result',
             element: <div>result element</div>,
             errorElement: <div>error to indicate invalid result</div>,
           },
