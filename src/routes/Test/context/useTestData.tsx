@@ -7,5 +7,5 @@ export const useTestData = () => {
   if (testData === null || testDataDispatch === null) {
     throw new Error('useTestData must be used within a TestDataContextProvider')
   }
-  return { testData, testDataDispatch }
+  return { ...testData, testDataDispatch }
 }

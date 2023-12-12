@@ -10,7 +10,7 @@ export const Test = () => {
     <main>
       <TestDataContextProvider
         testDataInit={{
-          testData: quizData.questions,
+          questions: quizData.questions,
           testType: quizData.title,
           answerSheet: new Array<boolean>(quizData.questions.length).fill(
             false,

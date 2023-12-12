@@ -1,7 +1,7 @@
 import { Question } from '../types/reducer'
 
 export interface TestDataState {
-  testData: Question[]
+  questions: Question[]
   testType: string
   answerSheet: boolean[]
 }
