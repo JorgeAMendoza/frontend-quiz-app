@@ -7,6 +7,7 @@ interface QuestionProps {
   choices: string[]
   testStatus: string
   nextQuestionURL: string
+  updateAnswerSheet: (answer: boolean) => void
 }
 
 export const Question = ({
@@ -15,6 +16,7 @@ export const Question = ({
   choices,
   testStatus,
   nextQuestionURL,
+  updateAnswerSheet,
 }: QuestionProps) => {
   const [userChoice, setUserChoice] = useState<string | null>(null)
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
@@ -50,6 +52,7 @@ export const Question = ({
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
               navigate(nextQuestionURL)
+              updateAnswerSheet(isCorrect)
               setUserChoice(null)
               setIsCorrect(null)
             } else if (userChoice === null) {

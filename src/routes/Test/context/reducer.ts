@@ -9,7 +9,8 @@ export interface TestDataState {
 interface UpdateAnswerSheetAction {
   type: 'UPDATE_ANSWER_SHEET'
   payload: {
-    answerSheet: boolean[]
+    questionNumber: number
+    answer: boolean
   }
 }
 
@@ -17,11 +18,16 @@ export type TestDataAction = UpdateAnswerSheetAction
 
 export const reducer = (state: TestDataState, action: TestDataAction) => {
   switch (action.type) {
-    case 'UPDATE_ANSWER_SHEET':
+    case 'UPDATE_ANSWER_SHEET': {
+      const { questionNumber, answer } = action.payload
+      const answerSheet = [...state.answerSheet]
+      answerSheet[questionNumber] = answer
       return {
         ...state,
-        answerSheet: action.payload.answerSheet,
+        answerSheet,
       }
+    }
+
     default:
       return state
   }
