@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 interface QuestionProps {
   question: string
   answer: string
   choices: string[]
   testStatus: string
-  nextQuestionURL: string
+  nextPageNav: () => void
   updateAnswerSheet: (answer: boolean) => void
 }
 
@@ -15,12 +14,11 @@ export const Question = ({
   answer,
   choices,
   testStatus,
-  nextQuestionURL,
+  nextPageNav,
   updateAnswerSheet,
 }: QuestionProps) => {
   const [userChoice, setUserChoice] = useState<string | null>(null)
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
-  const navigate = useNavigate()
   return (
     <>
       <div>
@@ -51,7 +49,7 @@ export const Question = ({
           type="button"
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
-              navigate(nextQuestionURL)
+              nextPageNav()
               updateAnswerSheet(isCorrect)
               setUserChoice(null)
               setIsCorrect(null)

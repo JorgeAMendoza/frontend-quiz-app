@@ -4,6 +4,7 @@ import { Root } from '../root/Root'
 import { Test } from '../Test/Test'
 import { testLoader } from '../Test/loader'
 import { TestQuestion } from '../TestQuestion/TestQuestion'
+import { Results } from '../result/Results'
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'result',
-            element: <div>result element</div>,
+            element: <Results />,
             errorElement: <div>error to indicate invalid result</div>,
           },
         ],
