@@ -12,7 +12,7 @@ export const TestQuestion = () => {
   }
 
   const nextPageNav = () => {
-    if (Number(questionNumber) === testData.questions.length - 1) {
+    if (Number(questionNumber) - 1 === testData.questions.length - 1) {
       navigate(`/${testData.testType}/result`, {
         state: {
           answerSheet: testData.answerSheet,
@@ -37,9 +37,9 @@ export const TestQuestion = () => {
 
   return (
     <Question
-      question={testData.questions[Number(questionNumber)].question}
-      answer={testData.questions[Number(questionNumber)].answer}
-      choices={testData.questions[Number(questionNumber)].options}
+      question={testData.questions[Number(questionNumber) - 1].question}
+      answer={testData.questions[Number(questionNumber) - 1].answer}
+      choices={testData.questions[Number(questionNumber) - 1].options}
       testStatus={`Question ${questionNumber} of ${testData.questions.length}`}
       nextPageNav={nextPageNav}
       updateAnswerSheet={(answer: boolean) =>
