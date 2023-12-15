@@ -14,7 +14,14 @@ interface UpdateAnswerSheetAction {
   }
 }
 
-export type TestDataAction = UpdateAnswerSheetAction
+interface SetSavedAnswerSheetAction {
+  type: 'SET_SAVED_ANSWER_SHEET'
+  payload: {
+    answerSheet: boolean[]
+  }
+}
+
+export type TestDataAction = UpdateAnswerSheetAction | SetSavedAnswerSheetAction
 
 export const reducer = (state: TestDataState, action: TestDataAction) => {
   switch (action.type) {
@@ -29,7 +36,13 @@ export const reducer = (state: TestDataState, action: TestDataAction) => {
         answerSheet,
       }
     }
-
+    case 'SET_SAVED_ANSWER_SHEET': {
+      const { answerSheet } = action.payload
+      return {
+        ...state,
+        answerSheet,
+      }
+    }
     default:
       return state
   }

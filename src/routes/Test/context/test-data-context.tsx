@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useEffect } from 'react'
 import { reducer, TestDataState, TestDataAction } from './reducer'
 
 interface TestDataContextProps {
@@ -23,6 +23,19 @@ export const TestDataContextProvider = ({
   testDataInit,
 }: TestDataContextProviderProps) => {
   const [testData, dispatch] = useReducer(reducer, testDataInit)
+
+  useEffect(() => {
+    const savedAnswerSheet = localStorage.getItem('answerSheet')
+    if (savedAnswerSheet) {
+      const parsedSavedAnswerSheet = JSON.parse(savedAnswerSheet) as boolean[]
+      dispatch({
+        type: 'SET_SAVED_ANSWER_SHEET',
+        payload: {
+          answerSheet: parsedSavedAnswerSheet,
+        },
+      })
+    }
+  }, [])
 
   return (
     <TestDataContextActions.Provider value={{ dispatch }}>

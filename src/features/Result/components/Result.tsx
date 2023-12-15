@@ -24,7 +24,13 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
             <span>{correctAnswers}</span> out of {totalQuestions}
           </p>
         </div>
-        <button type="button" onClick={() => navigate('/')}>
+        <button
+          type="button"
+          onClick={() => {
+            localStorage.removeItem('answerSheet')
+            navigate('/')
+          }}
+        >
           Play again
         </button>
       </div>

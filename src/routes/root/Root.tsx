@@ -4,6 +4,11 @@ import { LoaderReturn } from './loader'
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
   const location = useLocation()
+
+  if (location.pathname === '/') {
+    localStorage.removeItem('answerSheet')
+  }
+
   return (
     <>
       <header>
@@ -16,7 +21,7 @@ export const Root = () => {
               <h1>
                 Welcome to the <strong>Frontend Quiz!</strong>
               </h1>
-              <p>Pick a subjet to get started</p>
+              <p>Pick a subjcet to get started</p>
             </div>
             <div role="region" aria-label="select a quiz to get started">
               <ul>
