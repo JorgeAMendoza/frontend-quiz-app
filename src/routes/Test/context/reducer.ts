@@ -22,6 +22,8 @@ export const reducer = (state: TestDataState, action: TestDataAction) => {
       const { questionNumber, answer } = action.payload
       const answerSheet = [...state.answerSheet]
       answerSheet[questionNumber] = answer
+
+      localStorage.setItem('answerSheet', JSON.stringify(answerSheet))
       return {
         ...state,
         answerSheet,
