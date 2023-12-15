@@ -14,7 +14,10 @@ export const TestQuestion = () => {
   const nextPageNav = () => {
     if (Number(questionNumber) === testData.questions.length - 1) {
       navigate(`/${testData.testType}/result`, {
-        state: { answers: testData.answerSheet },
+        state: {
+          answerSheet: testData.answerSheet,
+          testType: testData.testType,
+        },
       })
     } else {
       navigate(`/${testData.testType}/question/${Number(questionNumber) + 1}`)
