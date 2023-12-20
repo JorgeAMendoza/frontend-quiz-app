@@ -12,7 +12,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'eslint-config-prettier',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', '*.config.ts', '*.config.js'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', '*.config.ts', '*.config.js', 'test'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',

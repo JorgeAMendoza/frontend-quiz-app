@@ -8,7 +8,7 @@ export default mergeConfig(
   defineConfig({
     resolve: {
       alias: {
-        test: path.resolve(__dirname, './test'),
+        '@test': path.resolve(__dirname, './test'),
       },
     },
     test: {
