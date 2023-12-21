@@ -12,7 +12,7 @@
     "cypress:run": "cypress run",
     "preview": "vite preview",
     "prepare": "husky install",
-    "test": ""
+    "test": "npx vitest run"
   },
   "dependencies": {
     "react": "^18.2.0",
