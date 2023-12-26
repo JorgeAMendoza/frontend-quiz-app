@@ -11,8 +11,11 @@ export const Root = () => {
     if (pathname === '/') {
       setTestName('')
       localStorage.removeItem('answerSheet')
+      localStorage.removeItem('testName')
+    } else if (pathname !== '/' && !testName) {
+      setTestName(localStorage.getItem('testName') || '')
     }
-  }, [pathname])
+  }, [pathname, testName])
 
   return (
     <>
