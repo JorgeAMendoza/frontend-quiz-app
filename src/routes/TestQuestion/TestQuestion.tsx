@@ -18,9 +18,12 @@ export const TestQuestion = () => {
           answerSheet: testData.answerSheet,
           testType: testData.testType,
         },
+        replace: true,
       })
     } else {
-      navigate(`/${testData.testType}/question/${Number(questionNumber) + 1}`)
+      navigate(`/${testData.testType}/question/${Number(questionNumber) + 1}`, {
+        replace: true,
+      })
     }
   }
 

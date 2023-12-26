@@ -72,6 +72,32 @@ describe('html test', () => {
     cy.url().should('include', '/html/question/2')
   })
 
+  it('first question renders, going "back" redirects to the home page', () => {
+    cy.title().should('contain.text', 'HTML | Question 1 | Frontend Quiz App')
+    cy.url().should('include', '/html/question/1')
+    cy.contains('Question 1 of 3')
+    cy.go('back')
+    cy.url().should('include', '/')
+  })
+
+  it('second question renders, going "back" redirects to the home page', () => {
+    cy.title().should('contain.text', 'HTML | Question 1 | Frontend Quiz App')
+    cy.url().should('include', '/html/question/1')
+    cy.contains('Question 1 of 3')
+
+    cy.get('[data-cy="answerOptions"]')
+      .children()
+      .then((answer) => {
+        cy.wrap(answer[3]).click()
+        cy.get('[data-cy="submitAnswer]').click()
+      })
+
+    cy.get('[data-cy="nextQuestion"]').click()
+    cy.url().should('include', '/html/question/2')
+    cy.go('back')
+    cy.url().should('include', '/')
+  })
+
   it('get all three questions right, result of 3/3 displayed', () => {
     cy.title().should('contain.text', 'HTML | Question 1 | Frontend Quiz App')
     cy.url().should('include', '/html/question/1')
