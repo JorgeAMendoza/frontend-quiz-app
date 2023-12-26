@@ -1,11 +1,15 @@
 import { Outlet, useLoaderData } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { TestDataContextProvider } from './context/test-data-context'
+import { useEffect } from 'react'
 
 export const Test = () => {
   const { quizData } = useLoaderData() as LoaderReturn
-  // params will be used to grab the test data.
-  // once grabbed, we pass it into the context provider, so it won't be null starting.
+
+  useEffect(() => {
+    localStorage.setItem('testName', quizData.title)
+  }, [])
+
   return (
     <main>
       <TestDataContextProvider
