@@ -1,21 +1,30 @@
+import { useEffect, useState } from 'react'
 import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
-  const location = useLocation()
+  const [testName, setTestName] = useState('')
+  const { pathname } = useLocation()
 
-  if (location.pathname === '/') {
-    localStorage.removeItem('answerSheet')
-  }
+  useEffect(() => {
+    if (pathname === '/') {
+      setTestName('')
+      localStorage.removeItem('answerSheet')
+      localStorage.removeItem('testName')
+    } else if (pathname !== '/' && !testName) {
+      setTestName(localStorage.getItem('testName') || '')
+    }
+  }, [pathname, testName])
 
   return (
     <>
       <header>
+        <p>{testName}</p>
         <div>theme toggle here</div>
       </header>
       <main>
-        {location.pathname === '/' ? (
+        {pathname === '/' ? (
           <>
             <div>
               <h1>
@@ -27,7 +36,12 @@ export const Root = () => {
               <ul>
                 {quizNames.map((quizName) => (
                   <li key={quizName}>
-                    <Link to={`/${quizName}/question/1`}>{quizName}</Link>
+                    <Link
+                      to={`/${quizName}/question/1`}
+                      onClick={() => setTestName(quizName)}
+                    >
+                      {quizName}
+                    </Link>
                   </li>
                 ))}
               </ul>
