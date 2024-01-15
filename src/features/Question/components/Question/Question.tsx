@@ -54,7 +54,6 @@ export const Question = ({
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
               nextPageNav()
-              updateAnswerSheet(isCorrect)
               setUserChoice(null)
               setIsCorrect(null)
             } else if (userChoice === null) {
@@ -63,9 +62,11 @@ export const Question = ({
             } else if (userChoice === answer) {
               // message to user that they are correct
               setIsCorrect(true)
+              updateAnswerSheet(true)
             } else {
               // message to user that they are incorrect
               setIsCorrect(false)
+              updateAnswerSheet(false)
             }
           }}
         >

@@ -28,6 +28,8 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
           type="button"
           onClick={() => {
             localStorage.removeItem('answerSheet')
+            localStorage.removeItem('currentQuestion')
+            localStorage.removeItem('testName')
             navigate('/')
           }}
         >
