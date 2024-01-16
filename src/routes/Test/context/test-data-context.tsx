@@ -26,7 +26,7 @@ export const TestDataContextProvider = ({
 
   useEffect(() => {
     const savedAnswerSheet = localStorage.getItem('answerSheet')
-    const savedCurrentQuestion = localStorage.getItem('currentQuestion')
+    const savedNextQuestion = localStorage.getItem('nextQuestion')
     if (savedAnswerSheet) {
       const parsedSavedAnswerSheet = JSON.parse(savedAnswerSheet) as boolean[]
       dispatch({
@@ -37,14 +37,12 @@ export const TestDataContextProvider = ({
       })
     }
 
-    if (savedCurrentQuestion) {
-      const parsedSavedCurrentQuestion = JSON.parse(
-        savedCurrentQuestion,
-      ) as number
+    if (savedNextQuestion) {
+      const parsedSavedNextQuestion = JSON.parse(savedNextQuestion) as number
       dispatch({
-        type: 'SET_SAVED_CURRENT_QUESTION',
+        type: 'SET_SAVED_NEXT_QUESTION',
         payload: {
-          currentQuestion: parsedSavedCurrentQuestion,
+          nextQuestion: parsedSavedNextQuestion,
         },
       })
     }

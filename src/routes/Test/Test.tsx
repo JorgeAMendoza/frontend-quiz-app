@@ -19,7 +19,7 @@ export const Test = () => {
           answerSheet: new Array<boolean>(quizData.questions.length).fill(
             false,
           ),
-          currentQuestion: 1,
+          nextQuestion: null,
         }}
       >
         <div>status bar</div>
