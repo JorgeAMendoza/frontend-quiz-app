@@ -16,9 +16,9 @@ export const Test = () => {
         testDataInit={{
           questions: quizData.questions,
           testType: quizData.title,
-          answerSheet: new Array<boolean>(quizData.questions.length).fill(
-            false,
-          ),
+          answerSheet: new Array<boolean | null>(
+            quizData.questions.length,
+          ).fill(null),
           nextQuestion: null,
         }}
       >

@@ -1,9 +1,11 @@
 import { Question } from '../types/reducer'
 
+type Answer = boolean | null
+
 export interface TestDataState {
   questions: Question[]
   testType: string
-  answerSheet: boolean[]
+  answerSheet: Answer[]
   nextQuestion: number | null
 }
 
