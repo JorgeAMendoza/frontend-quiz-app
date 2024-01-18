@@ -2,6 +2,7 @@ import { Outlet, useLoaderData } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { TestDataContextProvider } from './context/test-data-context'
 import { useEffect } from 'react'
+import type { Answer } from './context/reducer'
 
 export const Test = () => {
   const { quizData } = useLoaderData() as LoaderReturn
@@ -16,9 +17,9 @@ export const Test = () => {
         testDataInit={{
           questions: quizData.questions,
           testType: quizData.title,
-          answerSheet: new Array<boolean | null>(
-            quizData.questions.length,
-          ).fill(null),
+          answerSheet: new Array<Answer | null>(quizData.questions.length).fill(
+            null,
+          ),
           nextQuestion: null,
         }}
       >

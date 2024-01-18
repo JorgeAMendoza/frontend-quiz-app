@@ -27,26 +27,32 @@ export const TestQuestion = () => {
     }
   }
 
-  const updateAnswerSheet = (questionNumber: number, answer: boolean) => {
+  const updateAnswerSheet = (
+    questionNumber: number,
+    answer: boolean,
+    userChoice: string,
+  ) => {
     const zeroIndexQuestionNumber = questionNumber - 1
     testDataDispatch.dispatch({
       type: 'UPDATE_ANSWER_SHEET',
       payload: {
         questionNumber: zeroIndexQuestionNumber,
         answer,
+        userChoice,
       },
     })
   }
 
   return (
     <Question
+      questionNumber={questionNumber}
       question={testData.questions[Number(questionNumber) - 1].question}
       answer={testData.questions[Number(questionNumber) - 1].answer}
       choices={testData.questions[Number(questionNumber) - 1].options}
       testStatus={`Question ${questionNumber} of ${testData.questions.length}`}
       nextPageNav={nextPageNav}
-      updateAnswerSheet={(answer: boolean) =>
-        updateAnswerSheet(Number(questionNumber), answer)
+      updateAnswerSheet={(answer: boolean, userChoice: string) =>
+        updateAnswerSheet(Number(questionNumber), answer, userChoice)
       }
     />
   )
