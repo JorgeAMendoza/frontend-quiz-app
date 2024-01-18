@@ -2,84 +2,71 @@ import { screen } from '@testing-library/react'
 import { Question } from './Question'
 import { fn } from 'jest-mock'
 import { render } from '@test/utilities'
+import { TestDataContextProvider } from '@/routes/Test/context/test-data-context'
+import type { Answer } from '@/routes/Test/context/reducer'
 
 const questionData = {
   question: 'What does HTML stand for?',
   answer: 'Hyper Text Markup Language',
-  choices: [
+  options: [
     'Hyper Text Preprocessor',
     'Hyper Text Markup Language',
     'Hyper Text Multiple Language',
     'Hyper Tool Multi Language',
   ],
-  testStatus: 'Question 1 of 1',
+}
+
+const testDataInit = {
+  questions: [questionData],
+  testType: 'HTML',
+  answerSheet: new Array<Answer | null>(1).fill(null),
+  nextQuestion: null,
+}
+
+const renderQuestion = () => {
+  const mockNav = fn()
+  const mockAnswerupdate = fn()
+  return render(
+    <Question
+      questionNumber="1"
+      question={questionData.question}
+      answer={questionData.answer}
+      choices={questionData.options}
+      testStatus="Question 1 of 1"
+      nextPageNav={mockNav}
+      updateAnswerSheet={mockAnswerupdate}
+    />,
+    {
+      wrapper: ({ children }) => (
+        <TestDataContextProvider testDataInit={testDataInit}>
+          {children}
+        </TestDataContextProvider>
+      ),
+    },
+  )
 }
 
 it('it should render the component', () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  renderQuestion()
 })
 
 test('should render the question', () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  renderQuestion()
   const question = screen.getByText(questionData.question)
   expect(question.textContent).toBe(questionData.question)
 })
 
 test('should be able to select a choice', async () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  const { user } = render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  const { user } = renderQuestion()
   const choiceButton = screen.getByRole('button', {
-    name: `a${questionData.choices[0]}`,
+    name: `a${questionData.options[0]}`,
   })
   await user.click(choiceButton)
   expect(choiceButton.getAttribute('data-selected')).toBe('true')
 })
 
 test('should not display "next question" button if no initial choice is selected', async () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  const { user } = render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  const { user } = renderQuestion()
   const submitButton = screen.getByRole('button', { name: 'Submit' })
   await user.click(submitButton)
   screen.getByText('Please select an answer')
@@ -87,20 +74,9 @@ test('should not display "next question" button if no initial choice is selected
 })
 
 test('should insert data attribute on the correct selected choice', async () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  const { user } = render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  const { user } = renderQuestion()
   const choiceButton = screen.getByRole('button', {
-    name: `b${questionData.choices[1]}`,
+    name: `b${questionData.options[1]}`,
   })
   const submitButton = screen.getByRole('button', { name: 'Submit' })
   await user.click(choiceButton)
@@ -111,29 +87,18 @@ test('should insert data attribute on the correct selected choice', async () => 
 })
 
 test('should insert data attribute to the incorrect selected choice', async () => {
-  const mockNav = fn()
-  const mockAnswerupdate = fn()
-  const { user } = render(
-    <Question
-      question={questionData.question}
-      answer={questionData.answer}
-      choices={questionData.choices}
-      testStatus="Question 1 of 1"
-      nextPageNav={mockNav}
-      updateAnswerSheet={mockAnswerupdate}
-    />,
-  )
+  const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.choices[0]}`,
+    name: `a${questionData.options[0]}`,
   })
   const optionB = screen.getByRole('button', {
-    name: `b${questionData.choices[1]}`,
+    name: `b${questionData.options[1]}`,
   })
   const optionC = screen.getByRole('button', {
-    name: `c${questionData.choices[2]}`,
+    name: `c${questionData.options[2]}`,
   })
   const optionD = screen.getByRole('button', {
-    name: `d${questionData.choices[3]}`,
+    name: `d${questionData.options[3]}`,
   })
   const submitButton = screen.getByRole('button', { name: 'Submit' })
   await user.click(optionA)

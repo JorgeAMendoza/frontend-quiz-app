@@ -1,25 +1,41 @@
+import { useTestData } from '@/routes/Test/context/useTestData'
 import { useState } from 'react'
 
 interface QuestionProps {
   question: string
+  questionNumber: string
   answer: string
   choices: string[]
   testStatus: string
   nextPageNav: () => void
-  updateAnswerSheet: (answer: boolean) => void
+  updateAnswerSheet: (answer: boolean, userChoice: string) => void
 }
 
 export const Question = ({
   question,
+  questionNumber,
   answer,
   choices,
   testStatus,
   nextPageNav,
   updateAnswerSheet,
 }: QuestionProps) => {
-  const [userChoice, setUserChoice] = useState<string | null>(null)
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const { testData } = useTestData()
+  const [userChoice, setUserChoice] = useState<string | null>(() => {
+    const questionIndex = Number(questionNumber) - 1
+    if (testData.answerSheet[questionIndex] === null) return null
+    if (testData.answerSheet[questionIndex]?.userChoice === null) return null
+
+    return testData.answerSheet[questionIndex]?.userChoice as string
+  })
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(() => {
+    const questionIndex = Number(questionNumber) - 1
+    if (testData.answerSheet[questionIndex] === null) return null
+
+    return testData.answerSheet[questionIndex]?.isCorrect as boolean
+  })
   const [selectMessage, setSelectMessage] = useState<string>('')
+
   return (
     <>
       <div>
@@ -62,11 +78,11 @@ export const Question = ({
             } else if (userChoice === answer) {
               // message to user that they are correct
               setIsCorrect(true)
-              updateAnswerSheet(true)
+              updateAnswerSheet(true, userChoice)
             } else {
               // message to user that they are incorrect
               setIsCorrect(false)
-              updateAnswerSheet(false)
+              updateAnswerSheet(false, userChoice)
             }
           }}
         >
