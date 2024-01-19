@@ -11,6 +11,14 @@ export const TestQuestion = () => {
     throw new Error('Question number is not defined')
   }
 
+  if (
+    (testData.nextQuestion !== null &&
+      Number(questionNumber) > testData.nextQuestion) ||
+    (testData.nextQuestion === null && Number(questionNumber) !== 1)
+  ) {
+    throw new Error('Question Skipped. No cheating!')
+  }
+
   const nextPageNav = () => {
     if (Number(questionNumber) - 1 === testData.questions.length - 1) {
       navigate(`/${testData.testType}/result`, {
