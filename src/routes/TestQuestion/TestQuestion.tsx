@@ -15,6 +15,10 @@ export const TestQuestion = () => {
     throw new Error('Question Skipped. No cheating!')
   }
 
+  if (Number(questionNumber) < testData.currentQuestion) {
+    throw new Error('Question already answered. No cheating!')
+  }
+
   const nextPageNav = () => {
     if (Number(questionNumber) - 1 === testData.questions.length - 1) {
       navigate(`/${testData.testType}/result`, {
