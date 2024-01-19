@@ -7,7 +7,7 @@ export const TestQuestion = () => {
   const { testData, testDataDispatch } = useTestData()
   const navigate = useNavigate()
 
-  if (!questionNumber) {
+  if (!questionNumber || Number(questionNumber) < 1) {
     throw new Error('Question number is not defined')
   }
 
