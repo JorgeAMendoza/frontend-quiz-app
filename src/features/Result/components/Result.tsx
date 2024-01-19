@@ -1,13 +1,14 @@
+import type { Answer } from '@/routes/Test/context/reducer'
 import { useNavigate } from 'react-router-dom'
 
 interface ResultProps {
   testType: string
-  answerSheet: boolean[]
+  answerSheet: Answer[]
 }
 
 export const Result = ({ testType, answerSheet }: ResultProps) => {
   const totalQuestions = answerSheet.length
-  const correctAnswers = answerSheet.filter((answer) => answer).length
+  const correctAnswers = answerSheet.filter((answer) => answer.isCorrect).length
   const navigate = useNavigate()
   return (
     <>
@@ -28,7 +29,9 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
           type="button"
           onClick={() => {
             localStorage.removeItem('answerSheet')
-            navigate('/')
+            localStorage.removeItem('currentQuestion')
+            localStorage.removeItem('testName')
+            navigate('/', { replace: true })
           }}
         >
           Play again

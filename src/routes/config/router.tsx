@@ -5,6 +5,7 @@ import { Test } from '../Test/Test'
 import { testLoader } from '../Test/loader'
 import { TestQuestion } from '../TestQuestion/TestQuestion'
 import { Results } from '../result/Results'
+import { TestError } from '../Test/components/Error'
 
 export const router = createBrowserRouter([
   {
@@ -15,19 +16,17 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/:test',
-        errorElement: <div>error to indicate invalid url within html</div>,
+        errorElement: <TestError />,
         loader: testLoader,
         element: <Test />,
         children: [
           {
             path: 'question/:questionNumber',
             element: <TestQuestion />,
-            errorElement: <div>error to indicate invalid question</div>,
           },
           {
             path: 'result',
             element: <Results />,
-            errorElement: <div>error to indicate invalid result</div>,
           },
         ],
       },
