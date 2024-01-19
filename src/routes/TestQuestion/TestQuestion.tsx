@@ -11,11 +11,7 @@ export const TestQuestion = () => {
     throw new Error('Question number is not defined')
   }
 
-  if (
-    (testData.nextQuestion !== null &&
-      Number(questionNumber) > testData.nextQuestion) ||
-    (testData.nextQuestion === null && Number(questionNumber) !== 1)
-  ) {
+  if (Number(questionNumber) > testData.currentQuestion) {
     throw new Error('Question Skipped. No cheating!')
   }
 
@@ -29,6 +25,12 @@ export const TestQuestion = () => {
         replace: true,
       })
     } else {
+      testDataDispatch.dispatch({
+        type: 'SET_CURRENT_QUESTION',
+        payload: {
+          currentQuestion: Number(questionNumber) + 1,
+        },
+      })
       navigate(`/${testData.testType}/question/${Number(questionNumber) + 1}`, {
         replace: true,
       })

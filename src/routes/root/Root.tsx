@@ -12,7 +12,7 @@ export const Root = () => {
       setTestName('')
       localStorage.removeItem('answerSheet')
       localStorage.removeItem('testName')
-      localStorage.removeItem('nextQuestion')
+      localStorage.removeItem('currentQuestion')
     } else if (pathname !== '/' && !testName) {
       setTestName(localStorage.getItem('testName') || '')
     }

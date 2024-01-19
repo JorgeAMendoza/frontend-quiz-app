@@ -21,16 +21,16 @@ export const TestDataContextActions =
 
 const initializeTestData = (testDataInit: TestDataState) => {
   const savedAnswerSheet = localStorage.getItem('answerSheet')
-  const savedNextQuestion = localStorage.getItem('nextQuestion')
+  const savedCurrentQuestion = localStorage.getItem('currentQuestion')
   const modifiedTestDataInit = { ...testDataInit }
   if (savedAnswerSheet) {
     const parsedSavedAnswerSheet = JSON.parse(savedAnswerSheet) as Answer[]
     modifiedTestDataInit.answerSheet = parsedSavedAnswerSheet
   }
 
-  if (savedNextQuestion) {
-    const parsedSavedNextQuestion = JSON.parse(savedNextQuestion) as number
-    modifiedTestDataInit.nextQuestion = parsedSavedNextQuestion
+  if (savedCurrentQuestion) {
+    const parsedCurrentQuestion = JSON.parse(savedCurrentQuestion) as number
+    modifiedTestDataInit.currentQuestion = parsedCurrentQuestion
   }
   return modifiedTestDataInit
 }

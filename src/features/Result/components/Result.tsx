@@ -29,9 +29,9 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
           type="button"
           onClick={() => {
             localStorage.removeItem('answerSheet')
-            localStorage.removeItem('nextQuestion')
+            localStorage.removeItem('currentQuestion')
             localStorage.removeItem('testName')
-            navigate('/')
+            navigate('/', { replace: true })
           }}
         >
           Play again

@@ -9,7 +9,7 @@ export interface TestDataState {
   questions: Question[]
   testType: string
   answerSheet: (Answer | null)[]
-  nextQuestion: number | null
+  currentQuestion: number
 }
 
 interface UpdateAnswerSheetAction {
@@ -28,17 +28,17 @@ interface SetSavedAnswerSheetAction {
   }
 }
 
-interface SetSavedNextQuestionAction {
-  type: 'SET_SAVED_NEXT_QUESTION'
+interface SetSavedCurrentQuestionAction {
+  type: 'SET_CURRENT_QUESTION'
   payload: {
-    nextQuestion: number | null
+    currentQuestion: number
   }
 }
 
 export type TestDataAction =
   | UpdateAnswerSheetAction
   | SetSavedAnswerSheetAction
-  | SetSavedNextQuestionAction
+  | SetSavedCurrentQuestionAction
 
 export const reducer = (state: TestDataState, action: TestDataAction) => {
   switch (action.type) {
@@ -51,11 +51,9 @@ export const reducer = (state: TestDataState, action: TestDataAction) => {
       }
 
       localStorage.setItem('answerSheet', JSON.stringify(answerSheet))
-      localStorage.setItem('nextQuestion', JSON.stringify(questionNumber + 2))
       return {
         ...state,
         answerSheet,
-        nextQuestion: questionNumber + 2,
       }
     }
     case 'SET_SAVED_ANSWER_SHEET': {
@@ -65,11 +63,12 @@ export const reducer = (state: TestDataState, action: TestDataAction) => {
         answerSheet,
       }
     }
-    case 'SET_SAVED_NEXT_QUESTION': {
-      const { nextQuestion } = action.payload
+    case 'SET_CURRENT_QUESTION': {
+      const { currentQuestion } = action.payload
+      localStorage.setItem('currentQuestion', JSON.stringify(currentQuestion))
       return {
         ...state,
-        nextQuestion,
+        currentQuestion,
       }
     }
     default:

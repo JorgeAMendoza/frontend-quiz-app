@@ -20,7 +20,7 @@ const testDataInit = {
   questions: [questionData],
   testType: 'HTML',
   answerSheet: new Array<Answer | null>(1).fill(null),
-  nextQuestion: null,
+  currentQuestion: 1,
 }
 
 const renderQuestion = () => {
