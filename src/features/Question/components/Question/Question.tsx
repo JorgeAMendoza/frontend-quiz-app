@@ -55,6 +55,7 @@ export const Question = ({
                   onClick={() => {
                     setUserChoice(choice)
                   }}
+                  disabled={isCorrect !== null}
                 >
                   <span>
                     {String.fromCharCode(97 + index)}
