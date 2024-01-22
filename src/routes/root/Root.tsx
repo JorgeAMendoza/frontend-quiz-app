@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
+import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
   const [testName, setTestName] = useState('')
   const { pathname } = useLocation()
+  const ref = useKeyboardNav('#testList a')
 
   useEffect(() => {
     if (pathname === '/') {
@@ -33,8 +35,12 @@ export const Root = () => {
               </h1>
               <p>Pick a subjcet to get started</p>
             </div>
-            <div role="region" aria-label="select a quiz to get started">
-              <ul>
+            <div
+              role="region"
+              aria-label="select a quiz to get started"
+              ref={ref}
+            >
+              <ul id="testList">
                 {quizNames.map((quizName) => (
                   <li key={quizName}>
                     <Link
