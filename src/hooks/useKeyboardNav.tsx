@@ -1,9 +1,13 @@
 import { useEffect, useRef } from 'react'
 
+interface ElementOptions {
+  firstElementQuery?: string
+  lastElementQuery?: string
+}
+
 export const useKeyboardNav = (
-  selectRange: string,
-  firstElementID?: string,
-  secondElementID?: string,
+  selectRangeQuery: string,
+  elementOptions?: ElementOptions,
 ) => {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -11,14 +15,22 @@ export const useKeyboardNav = (
     const targetDOM = ref.current
     const handleKeyDown = (e: KeyboardEvent) => {
       const targetItems = Array.from(
-        targetDOM?.querySelectorAll(selectRange) as NodeListOf<HTMLElement>,
+        targetDOM?.querySelectorAll(
+          selectRangeQuery,
+        ) as NodeListOf<HTMLElement>,
       )
-      const firstElement = firstElementID
-        ? document.getElementById(firstElementID)
-        : null
-      const secondElement = secondElementID
-        ? document.getElementById(secondElementID)
-        : null
+      const firstElement =
+        elementOptions && elementOptions.firstElementQuery
+          ? (document.querySelector(
+              elementOptions.firstElementQuery,
+            ) as HTMLElement)
+          : null
+      const secondElement =
+        elementOptions && elementOptions.lastElementQuery
+          ? (document.querySelector(
+              elementOptions.lastElementQuery,
+            ) as HTMLElement)
+          : null
       const list = [...targetItems]
 
       if (firstElement && firstElement !== list[0]) list.unshift(firstElement)

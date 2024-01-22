@@ -1,3 +1,4 @@
+import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { useTestData } from '@/routes/Test/context/useTestData'
 import { useState } from 'react'
 
@@ -21,6 +22,9 @@ export const Question = ({
   updateAnswerSheet,
 }: QuestionProps) => {
   const { testData } = useTestData()
+  const ref = useKeyboardNav('ul li button', {
+    lastElementQuery: '#submitOrNext',
+  })
   const [userChoice, setUserChoice] = useState<string | null>(() => {
     const questionIndex = Number(questionNumber) - 1
     if (testData.answerSheet[questionIndex] === null) return null
@@ -42,7 +46,7 @@ export const Question = ({
         <p>{testStatus}</p>
         <h1>{question}</h1>
       </div>
-      <div>
+      <div ref={ref}>
         <ul>
           {choices.map((choice, index) => {
             return (
@@ -67,6 +71,7 @@ export const Question = ({
           })}
         </ul>
         <button
+          id="submitOrNext"
           type="button"
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
