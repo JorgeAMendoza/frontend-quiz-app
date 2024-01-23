@@ -1,5 +1,6 @@
+import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { useTestData } from '@/routes/Test/context/useTestData'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface QuestionProps {
   question: string
@@ -21,6 +22,9 @@ export const Question = ({
   updateAnswerSheet,
 }: QuestionProps) => {
   const { testData } = useTestData()
+  const ref = useKeyboardNav('ul li button', {
+    lastElementQuery: '#submitOrNext',
+  })
   const [userChoice, setUserChoice] = useState<string | null>(() => {
     const questionIndex = Number(questionNumber) - 1
     if (testData.answerSheet[questionIndex] === null) return null
@@ -36,13 +40,22 @@ export const Question = ({
   })
   const [selectMessage, setSelectMessage] = useState<string>('')
 
+  useEffect(() => {
+    if (isCorrect === null) {
+      const firstOption = ref.current?.querySelector(
+        'ul li button:first-of-type',
+      ) as HTMLButtonElement
+      firstOption.focus()
+    }
+  }, [isCorrect, ref])
+
   return (
     <>
       <div>
         <p>{testStatus}</p>
         <h1>{question}</h1>
       </div>
-      <div>
+      <div ref={ref}>
         <ul>
           {choices.map((choice, index) => {
             return (
@@ -55,6 +68,7 @@ export const Question = ({
                   onClick={() => {
                     setUserChoice(choice)
                   }}
+                  disabled={isCorrect !== null}
                 >
                   <span>
                     {String.fromCharCode(97 + index)}
@@ -66,6 +80,7 @@ export const Question = ({
           })}
         </ul>
         <button
+          id="submitOrNext"
           type="button"
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
