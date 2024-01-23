@@ -1,6 +1,6 @@
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { useTestData } from '@/routes/Test/context/useTestData'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface QuestionProps {
   question: string
@@ -39,6 +39,15 @@ export const Question = ({
     return testData.answerSheet[questionIndex]?.isCorrect as boolean
   })
   const [selectMessage, setSelectMessage] = useState<string>('')
+
+  useEffect(() => {
+    if (isCorrect === null) {
+      const firstOption = ref.current?.querySelector(
+        'ul li button:first-of-type',
+      ) as HTMLButtonElement
+      firstOption.focus()
+    }
+  }, [isCorrect, ref])
 
   return (
     <>
