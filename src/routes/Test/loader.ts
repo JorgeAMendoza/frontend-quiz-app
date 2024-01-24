@@ -7,6 +7,14 @@ export const testLoader = ({ params }: LoaderFunctionArgs) => {
 
   if (quizDataNames.includes(paramQuiz)) {
     const index = quizDataNames.indexOf(paramQuiz)
+    if (import.meta.env.DEV) {
+      return {
+        quizData: {
+          ...testData.quizzes[index],
+          questions: testData.quizzes[index].questions.slice(0, 3),
+        },
+      }
+    }
     return { quizData: testData.quizzes[index] }
   } else throw new Error('Quiz not found')
 }

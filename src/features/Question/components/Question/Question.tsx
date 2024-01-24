@@ -53,10 +53,10 @@ export const Question = ({
     <>
       <div>
         <p>{testStatus}</p>
-        <h1>{question}</h1>
+        <h1 data-cy="questionText">{question}</h1>
       </div>
       <div ref={ref}>
-        <ul>
+        <ul data-cy="answerOptions">
           {choices.map((choice, index) => {
             return (
               <li key={choice}>
@@ -81,6 +81,7 @@ export const Question = ({
         </ul>
         <button
           id="submitOrNext"
+          data-cy="submitOrNext"
           type="button"
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
