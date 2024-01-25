@@ -1,0 +1,58 @@
+name: Dev Branch Pipeline
+
+on:
+  push:
+    branches: [dev]
+  pull_request: 
+    branches: [dev]
+
+jobs:
+  linting-and-type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Linting
+        run: npm lint
+      - name: Type Check
+        run: npx tsc --noEmit
+
+  unit-component-tests: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Unit Tests
+        run: npm test
+  
+  cypress-test: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: build app
+        run: npm run build
+      - name: End-to-end tests with Chrome
+        uses: cypress-io/github-action@v4.2.0
+        with: 
+          browser: chrome
+          start: npm run dev
+          wait-on: 'http://localhost:3000'
