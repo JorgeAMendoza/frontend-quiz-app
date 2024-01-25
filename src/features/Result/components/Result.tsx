@@ -26,6 +26,7 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
           </p>
         </div>
         <button
+          data-cy="playAgain"
           type="button"
           onClick={() => {
             localStorage.removeItem('answerSheet')

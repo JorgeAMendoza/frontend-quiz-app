@@ -7,7 +7,9 @@ export const TestError = () => {
       <h1>Something went wrong!</h1>
       <p>{routerError.message}</p>
 
-      <Link to="/">Go Home</Link>
+      <Link to="/" data-cy="homeLink">
+        Go Home
+      </Link>
     </div>
   )
 }

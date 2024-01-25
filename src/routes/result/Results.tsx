@@ -5,6 +5,10 @@ import { LocationState } from './types'
 export const Results = () => {
   const location = useLocation()
   const testInformation = location.state as LocationState
+
+  if (testInformation === null) {
+    throw new Error("You didn't finish the test!")
+  }
   return (
     <>
       <Result

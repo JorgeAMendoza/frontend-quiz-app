@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
+import { ThemeToggle } from '@/features/ThemeToggle'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
@@ -24,7 +25,7 @@ export const Root = () => {
     <>
       <header>
         <p>{testName}</p>
-        <div>theme toggle here</div>
+        <ThemeToggle />
       </header>
       <main>
         {pathname === '/' ? (
@@ -40,7 +41,7 @@ export const Root = () => {
               aria-label="select a quiz to get started"
               ref={ref}
             >
-              <ul id="testList">
+              <ul id="testList" data-cy="testList">
                 {quizNames.map((quizName) => (
                   <li key={quizName}>
                     <Link
