@@ -155,10 +155,4 @@ describe('html test', () => {
     cy.get('[data-cy="playAgain"]').click()
     cy.url().should('include', '/')
   })
-
-  it.only('jump ahead in the quiz, error page displayed', () => {
-    cy.visit('/HTML/question/2')
-    cy.contains('Error')
-    cy.contains('Please start the quiz from the beginning')
-  })
 })

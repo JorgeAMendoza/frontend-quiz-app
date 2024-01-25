@@ -6,13 +6,14 @@ import { testLoader } from '../Test/loader'
 import { TestQuestion } from '../TestQuestion/TestQuestion'
 import { Results } from '../result/Results'
 import { TestError } from '../Test/components/Error'
+import { RootError } from '../root/components/RootError'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     loader: rootLoader,
-    errorElement: <div>error element</div>,
+    errorElement: <RootError />,
     children: [
       {
         path: '/:test',
