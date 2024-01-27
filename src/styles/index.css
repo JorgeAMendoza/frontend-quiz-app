@@ -1,0 +1,85 @@
+:root {
+  --purple: #a729f5;
+  --dark-navy: #313e51;
+  --navy: #3b4d66;
+  --gray-navy: #626c7f;
+  --light-bluish: #abc1e1;
+  --light-gray: #f4f6fa;
+  --white: #fff;
+  --green: #26d782;
+  --red: #ee5454;
+
+  /* fonts and headings */
+  --heading-main: bold 9rem/1 'Rubik', sans-serif;
+  --heading-large: bold 4rem/1 'Rubik', sans-serif;
+  --heading-large-regular: 400 4rem/1 'Rubik', sans-serif;
+  --heading-medium: bold 2.25rem/1 'Rubik', sans-serif;
+  --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
+  --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
+  --text-regular-italic: italic 400 0.75rem/1.5 'Rubik', sans-serif;
+
+  /* breakpoints */
+  --desktop-break: 90rem;
+  --tablet-break: 48rem;
+  --mobile-break: 25.5rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: var(--text-regular);
+  line-height: 1.5;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+img,
+svg,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+[id] {
+  scroll-margin-top: 2rem;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root {
+  isolation: isolate;
+}
