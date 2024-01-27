@@ -1,0 +1,16 @@
+.root {
+  & h1 {
+    font: var(--heading-medium);
+    font-size: 4rem;
+    font-weight: 300;
+  }
+
+  & h1 strong {
+    font-weight: 500;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}

@@ -10,10 +10,10 @@
   --red: #ee5454;
 
   /* fonts and headings */
-  --heading-main: bold 9rem/1 'Rubik', sans-serif;
-  --heading-large: bold 4rem/1 'Rubik', sans-serif;
-  --heading-large-regular: 400 4rem/1 'Rubik', sans-serif;
-  --heading-medium: bold 2.25rem/1 'Rubik', sans-serif;
+  --heading-main: bold 14.4rem/1 'Rubik', sans-serif;
+  --heading-large: bold 6.4rem/1 'Rubik', sans-serif;
+  --heading-large-regular: 500 4rem/1 'Rubik', sans-serif;
+  --heading-medium: 500 3.6rem/1 'Rubik', sans-serif;
   --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
   --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
   --text-regular-italic: italic 400 0.75rem/1.5 'Rubik', sans-serif;
@@ -38,6 +38,8 @@ html {
 
 body {
   font: var(--text-regular);
+  background: var(--light-gray)
+    url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
   line-height: 1.5;
   font-size: 1.6rem;
   position: relative;

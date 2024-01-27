@@ -3,6 +3,8 @@ import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { ThemeToggle } from '@/features/ThemeToggle'
+import style from './root.module.css'
+import utilStyle from '@/styles/utils/util.module.css'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
@@ -22,12 +24,12 @@ export const Root = () => {
   }, [pathname, testName])
 
   return (
-    <>
-      <header>
-        <p>{testName}</p>
+    <div className={utilStyle.container}>
+      <header className={style.header}>
+        <p>{testName}dfsdf</p>
         <ThemeToggle />
       </header>
-      <main>
+      <main className={style.root}>
         {pathname === '/' ? (
           <>
             <div>
@@ -59,6 +61,6 @@ export const Root = () => {
           <Outlet />
         )}
       </main>
-    </>
+    </div>
   )
 }
