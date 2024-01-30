@@ -73,6 +73,13 @@ body {
   }
 }
 
+@media screen and (width >= 80rem) and (prefers-color-scheme: light) {
+  body {
+    background: var(--light-gray)
+      url('../assets/images/pattern-background-desktop-light.svg') no-repeat;
+  }
+}
+
 img,
 svg,
 picture,

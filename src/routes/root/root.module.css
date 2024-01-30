@@ -3,7 +3,7 @@
   justify-content: space-between;
   padding-block-start: 2.5rem;
 
-  @media screen and (width <= 48rem) {
+  @media screen and (width >= 48rem) {
     padding-block-start: 6rem;
   }
 
