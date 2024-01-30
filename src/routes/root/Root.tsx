@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
+import { Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { ThemeToggle } from '@/features/ThemeToggle'
 import style from './root.module.css'
 import utilStyle from '@/styles/utils/util.module.css'
+import { TestChoice } from '@/components'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
@@ -26,7 +27,7 @@ export const Root = () => {
   return (
     <div className={utilStyle.container}>
       <header className={style.header}>
-        <p>{testName}dfsdf</p>
+        <p>{testName}</p>
         <ThemeToggle />
       </header>
       <main className={style.root}>
@@ -43,16 +44,14 @@ export const Root = () => {
               aria-label="select a quiz to get started"
               ref={ref}
             >
-              <ul id="testList" data-cy="testList">
+              <ul id="testList" data-cy="testList" className={style.testList}>
                 {quizNames.map((quizName) => (
-                  <li key={quizName}>
-                    <Link
-                      to={`/${quizName}/question/1`}
-                      onClick={() => setTestName(quizName)}
-                    >
-                      {quizName}
-                    </Link>
-                  </li>
+                  <TestChoice
+                    key={quizName}
+                    testName={quizName}
+                    setTestName={setTestName}
+                    testIcon={`/test-icons/${quizName}.svg`}
+                  />
                 ))}
               </ul>
             </div>

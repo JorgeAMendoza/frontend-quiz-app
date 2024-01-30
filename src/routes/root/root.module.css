@@ -1,16 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-block-start: 2.5rem;
+}
+
 .root {
+  margin-block-start: 5.3rem;
+
   & h1 {
     font: var(--heading-medium);
     font-size: 4rem;
     font-weight: 300;
+    line-height: 1.2;
+    color: var(--text-color);
   }
 
   & h1 strong {
     font-weight: 500;
   }
+
+  & p {
+    font: var(--text-regular-italic);
+    margin-block-start: 1rem;
+  }
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
+.testList {
+  margin-block-start: 4rem;
 }
