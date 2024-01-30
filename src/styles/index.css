@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   --purple: #a729f5;
   --dark-navy: #313e51;
   --navy: #3b4d66;
@@ -16,7 +18,8 @@
   --heading-medium: 500 3.6rem/1 'Rubik', sans-serif;
   --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
   --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
-  --text-regular-italic: italic 400 0.75rem/1.5 'Rubik', sans-serif;
+  --text-medium-semi-bold: 500 1.8rem/1.5 'Rubik', sans-serif;
+  --text-regular-italic: italic 400 1.4rem/1.5 'Rubik', sans-serif;
 
   /* breakpoints */
   --desktop-break: 90rem;
@@ -43,6 +46,20 @@ body {
   line-height: 1.5;
   font-size: 1.6rem;
   position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: var(--white);
+    --option-background: var(--navy);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --text-color: var(--dark-navy);
+    --option-background: var(--white);
+  }
 }
 
 img,
