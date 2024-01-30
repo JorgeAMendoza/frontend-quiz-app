@@ -37,7 +37,7 @@ export const Root = () => {
               <h1>
                 Welcome to the <strong>Frontend Quiz!</strong>
               </h1>
-              <p>Pick a subjcet to get started</p>
+              <p>Pick a subject to get started</p>
             </div>
             <div
               role="region"

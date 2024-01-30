@@ -6,6 +6,10 @@
   @media screen and (width <= 48rem) {
     padding-block-start: 6rem;
   }
+
+  @media screen and (width >= 80rem) {
+    padding-block-start: 10rem;
+  }
 }
 
 .root {
@@ -28,8 +32,10 @@
     margin-block-start: 1rem;
   }
 
-  @media screen and (width <= 48rem) {
-    margin-block-start: 5.9rem;
+  @media screen and (width >= 48rem) {
+    & {
+      margin-block-start: 5.9rem;
+    }
 
     & h1 {
       font: var(--heading-large);
@@ -39,6 +45,18 @@
     & p {
       margin-block-start: 1.1rem;
       font-size: 2rem;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      display: grid;
+      grid-template-columns: 1fr 56.4rem;
+      margin-block-start: 9.9rem;
+    }
+
+    & p {
+      margin-block-start: 4.3rem;
     }
   }
 
@@ -58,7 +76,11 @@
 .testList {
   margin-block-start: 4rem;
 
-  @media screen and (width <= 48rem) {
+  @media screen and (width >= 48rem) {
     margin-block-start: 6.5rem;
+  }
+
+  @media screen and (width >= 80rem) {
+    margin-block-start: 0;
   }
 }
