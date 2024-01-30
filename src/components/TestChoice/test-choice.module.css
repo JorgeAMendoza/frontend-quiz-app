@@ -10,6 +10,16 @@
     margin-block-end: 1.2rem;
   }
 
+  @media screen and (width <= 48rem) {
+    border-radius: 24px;
+    height: 8rem;
+    padding: 0 1.2rem;
+
+    &:not(:last-of-type) {
+      margin-block-end: 2.4rem;
+    }
+  }
+
   @media (prefers-color-scheme: light) {
     box-shadow: 0 16px 40px 0 #8fa0c124;
   }
@@ -41,6 +51,31 @@
   & img {
     width: 3rem;
   }
+
+  @media screen and (width <= 48rem) {
+    border-radius: 12px;
+    width: 5.6rem;
+
+    &:has(img[src*='HTML']) {
+      background-color: #fff1e9;
+    }
+
+    &:has(img[src*='CSS']) {
+      background-color: #e0fdef;
+    }
+
+    &:has(img[src*='JavaScript']) {
+      background-color: #ebf0ff;
+    }
+
+    &:has(img[src*='Accessibility']) {
+      background-color: #f6e7ff;
+    }
+
+    & img {
+      width: 4rem;
+    }
+  }
 }
 
 .testName {
@@ -48,4 +83,9 @@
   text-decoration: none;
   font: var(--text-medium-semi-bold);
   margin-inline-start: 1.6rem;
+
+  @media screen and (width <= 48rem) {
+    font-size: 2.8rem;
+    margin-inline-start: 3.1rem;
+  }
 }

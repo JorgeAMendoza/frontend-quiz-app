@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   padding-block-start: 2.5rem;
+
+  @media screen and (width <= 48rem) {
+    padding-block-start: 6rem;
+  }
 }
 
 .root {
@@ -23,8 +27,38 @@
     font: var(--text-regular-italic);
     margin-block-start: 1rem;
   }
+
+  @media screen and (width <= 48rem) {
+    margin-block-start: 5.9rem;
+
+    & h1 {
+      font: var(--heading-large);
+      font-weight: 300;
+    }
+
+    & p {
+      margin-block-start: 1.1rem;
+      font-size: 2rem;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    & p {
+      color: var(--gray-navy);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    & p {
+      color: var(--light-bluish);
+    }
+  }
 }
 
 .testList {
   margin-block-start: 4rem;
+
+  @media screen and (width <= 48rem) {
+    margin-block-start: 6.5rem;
+  }
 }

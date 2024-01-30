@@ -13,7 +13,7 @@
 
   /* fonts and headings */
   --heading-main: bold 14.4rem/1 'Rubik', sans-serif;
-  --heading-large: bold 6.4rem/1 'Rubik', sans-serif;
+  --heading-large: bold 6.4rem/1.11 'Rubik', sans-serif;
   --heading-large-regular: 500 4rem/1 'Rubik', sans-serif;
   --heading-medium: 500 3.6rem/1 'Rubik', sans-serif;
   --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
@@ -41,8 +41,6 @@ html {
 
 body {
   font: var(--text-regular);
-  background: var(--light-gray)
-    url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
   line-height: 1.5;
   font-size: 1.6rem;
   position: relative;
@@ -52,6 +50,9 @@ body {
   body {
     --text-color: var(--white);
     --option-background: var(--navy);
+
+    background: var(--light-gray)
+      url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
   }
 }
 
@@ -59,6 +60,16 @@ body {
   body {
     --text-color: var(--dark-navy);
     --option-background: var(--white);
+
+    background: var(--light-gray)
+      url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
+  }
+}
+
+@media screen and (width <= 48rem) and (prefers-color-scheme: light) {
+  body {
+    background: var(--light-gray)
+      url('../assets/images/pattern-background-tablet-light.svg') no-repeat;
   }
 }
 
