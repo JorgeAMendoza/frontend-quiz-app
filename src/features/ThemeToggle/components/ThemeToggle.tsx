@@ -1,5 +1,6 @@
 import { Moon, Sun } from '@/components'
 import { useState } from 'react'
+import style from './theme-toggle.module.css'
 
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -23,8 +24,12 @@ export const ThemeToggle = () => {
     return 'light'
   })
   return (
-    <div data-cy="themeToggle">
-      <label aria-label="click to toggle light theme" data-testid="lightLabel">
+    <div data-cy="themeToggle" className={style.themeToggle}>
+      <label
+        aria-label="click to toggle light theme"
+        data-testid="lightLabel"
+        className={style.inputLabel}
+      >
         <Sun />
         <input
           data-testid="lightInput"
@@ -40,7 +45,13 @@ export const ThemeToggle = () => {
         />
       </label>
 
-      <label aria-label="click to toggle dark theme" data-testid="darkLabel">
+      <div className={style.toggle} data-light={theme === 'light'}></div>
+
+      <label
+        aria-label="click to toggle dark theme"
+        data-testid="darkLabel"
+        className={style.inputLabel}
+      >
         <Moon />
         <input
           data-testid="darkInput"

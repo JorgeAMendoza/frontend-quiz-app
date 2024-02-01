@@ -1,0 +1,54 @@
+.themeToggle {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.inputLabel {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  &:last-of-type {
+    flex-direction: row-reverse;
+  }
+
+  & svg {
+    width: 1.5rem;
+  }
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    left: 2.5rem;
+    z-index: 1;
+  }
+
+  &:last-of-type input {
+    left: -2.5rem;
+  }
+}
+
+.toggle {
+  min-width: 3.2rem;
+  height: 2rem;
+  border-radius: 11px;
+  background-color: var(--purple);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: transform 0.3s;
+    top: 0.4rem;
+    left: 0.4rem;
+  }
+
+  &[data-light='false']::before {
+    transform: translateX(1.2rem);
+  }
+}
