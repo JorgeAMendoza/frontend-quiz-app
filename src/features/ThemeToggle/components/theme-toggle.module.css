@@ -2,6 +2,12 @@
   display: flex;
   gap: 0.9rem;
   align-items: center;
+
+  @media screen and (width >= 48rem) {
+    & {
+      gap: 1.4rem;
+    }
+  }
 }
 
 .inputLabel {
@@ -27,6 +33,12 @@
   &:last-of-type input {
     left: -2.5rem;
   }
+
+  @media screen and (width >= 48rem) {
+    & svg {
+      width: 2.6rem;
+    }
+  }
 }
 
 .toggle {
@@ -40,7 +52,7 @@
     content: '';
     position: absolute;
     width: 1.2rem;
-    height: 1.2rem;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: var(--white);
     transition: transform 0.3s;
@@ -49,6 +61,18 @@
   }
 
   &[data-light='false']::before {
-    transform: translateX(1.2rem);
+    transform: translateX(100%);
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      min-width: 4.8rem;
+      height: 2.8rem;
+      border-radius: 15px;
+    }
+
+    &::before {
+      width: 2rem;
+    }
   }
 }
