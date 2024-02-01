@@ -4,11 +4,15 @@
   padding-block-start: 2.5rem;
 
   @media screen and (width >= 48rem) {
-    padding-block-start: 5.5rem;
+    & {
+      padding-block-start: 5.5rem;
+    }
   }
 
   @media screen and (width >= 80rem) {
-    padding-block-start: 10rem;
+    & {
+      padding-block-start: 9.7rem;
+    }
   }
 }
 
