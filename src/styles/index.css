@@ -46,37 +46,48 @@ body {
   position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    --text-color: var(--white);
-    --option-background: var(--navy);
+body[data-theme='dark'] {
+  --text-color: var(--white);
+  --option-background: var(--navy);
 
-    background: var(--light-gray)
-      url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
+  background: var(--dark-navy)
+    url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
+
+  /* we can place the other queries here */
+  @media screen and (width >= 48rem) {
+    & {
+      background: var(--dark-navy)
+        url('../assets/images/pattern-background-tablet-dark.svg') no-repeat;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      background: var(--dark-navy)
+        url('../assets/images/pattern-background-desktop-dark.svg') no-repeat;
+    }
   }
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    --text-color: var(--dark-navy);
-    --option-background: var(--white);
+body[data-theme='light'] {
+  --text-color: var(--dark-navy);
+  --option-background: var(--white);
 
-    background: var(--light-gray)
-      url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
+  background: var(--light-gray)
+    url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
+
+  @media screen and (width >= 48rem) {
+    & {
+      background: var(--light-gray)
+        url('../assets/images/pattern-background-tablet-light.svg') no-repeat;
+    }
   }
-}
 
-@media screen and (width >= 48rem) and (prefers-color-scheme: light) {
-  body {
-    background: var(--light-gray)
-      url('../assets/images/pattern-background-tablet-light.svg') no-repeat;
-  }
-}
-
-@media screen and (width >= 80rem) and (prefers-color-scheme: light) {
-  body {
-    background: var(--light-gray)
-      url('../assets/images/pattern-background-desktop-light.svg') no-repeat;
+  @media screen and (width >= 80rem) {
+    & {
+      background: var(--light-gray)
+        url('../assets/images/pattern-background-desktop-light.svg') no-repeat;
+    }
   }
 }
 

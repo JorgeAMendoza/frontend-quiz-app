@@ -5,6 +5,7 @@ export const ThemeToggle = () => {
     // have local storage take precedence
     const savedTheme = localStorage.getItem('theme')
     if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme)
       return savedTheme as 'light' | 'dark'
     }
 
@@ -12,8 +13,12 @@ export const ThemeToggle = () => {
     const systemPreference = window.matchMedia(
       '(prefers-color-scheme: dark)',
     ).matches
-    if (systemPreference) return 'dark'
+    if (systemPreference) {
+      document.body.setAttribute('data-theme', 'dark')
+      return 'dark'
+    }
 
+    document.body.setAttribute('data-theme', 'light')
     return 'light'
   })
   return (
@@ -26,6 +31,7 @@ export const ThemeToggle = () => {
           value="light"
           checked={theme === 'light'}
           onChange={() => {
+            document.body.setAttribute('data-theme', 'light')
             setTheme('light')
           }}
         />
@@ -39,6 +45,7 @@ export const ThemeToggle = () => {
           value="dark"
           checked={theme === 'dark'}
           onChange={() => {
+            document.body.setAttribute('data-theme', 'dark')
             setTheme('dark')
           }}
         />
