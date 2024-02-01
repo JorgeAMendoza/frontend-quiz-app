@@ -1,3 +1,4 @@
+import { Moon, Sun } from '@/components'
 import { useState } from 'react'
 
 export const ThemeToggle = () => {
@@ -24,6 +25,7 @@ export const ThemeToggle = () => {
   return (
     <div data-cy="themeToggle">
       <label aria-label="click to toggle light theme" data-testid="lightLabel">
+        <Sun />
         <input
           data-testid="lightInput"
           type="radio"
@@ -39,6 +41,7 @@ export const ThemeToggle = () => {
       </label>
 
       <label aria-label="click to toggle dark theme" data-testid="darkLabel">
+        <Moon />
         <input
           data-testid="darkInput"
           type="radio"

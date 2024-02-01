@@ -49,6 +49,7 @@ body {
 body[data-theme='dark'] {
   --text-color: var(--white);
   --option-background: var(--navy);
+  --theme-icon: var(--white);
 
   background: var(--dark-navy)
     url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
@@ -72,6 +73,7 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
   --text-color: var(--dark-navy);
   --option-background: var(--white);
+  --theme-icon: var(--gray-navy);
 
   background: var(--light-gray)
     url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
