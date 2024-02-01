@@ -53,3 +53,32 @@ describe('page load', () => {
       })
   })
 })
+
+describe('theme toggle', () => {
+  beforeEach(() => {
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.stub(win, 'matchMedia')
+          .withArgs('(prefers-color-scheme: dark)')
+          .returns({
+            matches: false,
+            addEventListener: () => {},
+          })
+      },
+    })
+  })
+
+  it.only('should start with the theme toggle set to light mode', () => {
+    cy.get('[data-cy="themeToggle"]')
+      .find('label:first-of-type input')
+      .should('be.checked')
+
+    cy.get('body').should('have.attr', 'data-theme', 'light')
+  })
+
+  it.only('should switch to dark mode', () => {
+    cy.get('[data-cy="themeToggle"]').find('label:last-of-type input').click()
+
+    cy.get('body').should('have.attr', 'data-theme', 'dark')
+  })
+})
