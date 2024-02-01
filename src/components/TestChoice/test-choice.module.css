@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   padding: 0 0.75em;
+  box-shadow: 0 16px 40px 0 var(--box-shadow-color);
 
   &:not(:last-of-type) {
     margin-block-end: 1.2rem;
@@ -27,10 +28,6 @@
       height: 9.6rem;
       padding: 0 1.2em;
     }
-  }
-
-  @media (prefers-color-scheme: light) {
-    box-shadow: 0 16px 40px 0 #8fa0c124;
   }
 }
 

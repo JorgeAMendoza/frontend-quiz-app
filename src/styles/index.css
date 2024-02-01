@@ -50,6 +50,8 @@ body[data-theme='dark'] {
   --text-color: var(--white);
   --option-background: var(--navy);
   --theme-icon: var(--white);
+  --accent-color: var(--light-bluish);
+  --box-shadow-color: #313e5114;
 
   background: var(--dark-navy)
     url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
@@ -74,6 +76,8 @@ body[data-theme='light'] {
   --text-color: var(--dark-navy);
   --option-background: var(--white);
   --theme-icon: var(--gray-navy);
+  --accent-color: var(--gray-navy);
+  --box-shadow-color: #8fa0c114;
 
   background: var(--light-gray)
     url('../assets/images/pattern-background-mobile-light.svg') no-repeat;

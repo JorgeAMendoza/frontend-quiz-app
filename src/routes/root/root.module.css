@@ -34,6 +34,7 @@
   & p {
     font: var(--text-regular-italic);
     margin-block-start: 1rem;
+    color: var(--text-color);
   }
 
   @media screen and (width >= 48rem) {
@@ -61,18 +62,6 @@
 
     & p {
       margin-block-start: 4.3rem;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    & p {
-      color: var(--gray-navy);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    & p {
-      color: var(--light-bluish);
     }
   }
 }
