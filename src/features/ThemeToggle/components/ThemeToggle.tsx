@@ -32,6 +32,7 @@ export const ThemeToggle = () => {
           checked={theme === 'light'}
           onChange={() => {
             document.body.setAttribute('data-theme', 'light')
+            localStorage.setItem('theme', 'light')
             setTheme('light')
           }}
         />
@@ -46,6 +47,7 @@ export const ThemeToggle = () => {
           checked={theme === 'dark'}
           onChange={() => {
             document.body.setAttribute('data-theme', 'dark')
+            localStorage.setItem('theme', 'dark')
             setTheme('dark')
           }}
         />
