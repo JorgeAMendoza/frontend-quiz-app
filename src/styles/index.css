@@ -40,6 +40,8 @@ html {
 }
 
 body {
+  --progress-bar: var(--purple);
+
   font: var(--text-regular);
   line-height: 1.5;
   font-size: 1.6rem;
@@ -52,6 +54,7 @@ body[data-theme='dark'] {
   --theme-icon: var(--white);
   --accent-color: var(--light-bluish);
   --box-shadow-color: #313e5114;
+  --progress-bar-background: var(--navy);
 
   background: var(--dark-navy)
     url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
@@ -78,6 +81,7 @@ body[data-theme='light'] {
   --theme-icon: var(--gray-navy);
   --accent-color: var(--gray-navy);
   --box-shadow-color: #8fa0c114;
+  --progress-bar-background: var(--white);
 
   background: var(--light-gray)
     url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
