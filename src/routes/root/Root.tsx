@@ -27,7 +27,14 @@ export const Root = () => {
   return (
     <div className={utilStyle.container}>
       <header className={style.header}>
-        <p>{testName}</p>
+        <div className={style.testTitle}>
+          {testName ? (
+            <span>
+              <img src={`/test-icons/${testName}.svg`} alt="" />
+            </span>
+          ) : null}
+          <p>{testName}</p>
+        </div>
         <ThemeToggle />
       </header>
       <main className={style.root}>

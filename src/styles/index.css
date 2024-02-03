@@ -19,7 +19,7 @@
   --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
   --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
   --text-medium-semi-bold: 500 1.8rem/1.5 'Rubik', sans-serif;
-  --text-regular-italic: italic 400 1.4rem/1.5 'Rubik', sans-serif;
+  --text-regular-italic: italic 400 1.4rem/1 5 'Rubik', sans-serif;
 
   /* breakpoints */
   --desktop-break: 90rem;

@@ -1,17 +1,75 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding-block-start: 2.5rem;
+  padding-block-start: 1.6rem;
 
   @media screen and (width >= 48rem) {
     & {
-      padding-block-start: 5.5rem;
+      padding-block-start: 4.1rem;
     }
   }
 
   @media screen and (width >= 80rem) {
     & {
-      padding-block-start: 9.7rem;
+      padding-block-start: 8.4rem;
+    }
+  }
+}
+
+.testTitle {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  & span {
+    width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & span:has(img[src*='HTML']) {
+    background-color: #fff1e9;
+  }
+
+  & span:has(img[src*='CSS']) {
+    background-color: #e0fdef;
+  }
+
+  & span:has(img[src*='JavaScript']) {
+    background-color: #ebf0ff;
+  }
+
+  & span:has(img[src*='Accessibility']) {
+    background-color: #f6e7ff;
+  }
+
+  & p {
+    color: var(--text-color);
+    font: var(--text-medium-semi-bold);
+  }
+
+  & img {
+    width: 3rem;
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      gap: 2.3rem;
+    }
+
+    & span {
+      width: 5.6rem;
+    }
+
+    & img {
+      width: 4rem;
+    }
+
+    & p {
+      font-size: 2.8rem;
     }
   }
 }
