@@ -1,6 +1,7 @@
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { useTestData } from '@/routes/Test/context/useTestData'
 import { useEffect, useState } from 'react'
+import { ProgressBar } from '../ProgressBar'
 
 interface QuestionProps {
   question: string
@@ -52,8 +53,13 @@ export const Question = ({
   return (
     <>
       <div>
-        <p>{testStatus}</p>
-        <h1 data-cy="questionText">{question}</h1>
+        <div>
+          <p>{testStatus}</p>
+          <h1 data-cy="questionText">{question}</h1>
+        </div>
+        <div>
+          <ProgressBar />
+        </div>
       </div>
       <div ref={ref}>
         <ul data-cy="answerOptions">

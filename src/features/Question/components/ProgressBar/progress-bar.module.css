@@ -1,0 +1,16 @@
+.progressBar {
+  background-color: black;
+  position: relative;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+
+  & > div {
+    position: absolute;
+    background-color: pink;
+    height: 0.8rem;
+    transform-origin: left;
+    width: 100%;
+    transform: scaleX(0.2);
+  }
+}
