@@ -37,9 +37,9 @@ export const Root = () => {
         </div>
         <ThemeToggle />
       </header>
-      <main className={style.root}>
+      <main>
         {pathname === '/' ? (
-          <>
+          <div className={style.root}>
             <div>
               <h1>
                 Welcome to the
@@ -63,7 +63,7 @@ export const Root = () => {
                 ))}
               </ul>
             </div>
-          </>
+          </div>
         ) : (
           <Outlet />
         )}

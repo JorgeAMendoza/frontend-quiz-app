@@ -1,17 +1,17 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding-block-start: 1.6rem;
+  padding-block-start: 2.5rem;
 
   @media screen and (width >= 48rem) {
     & {
-      padding-block-start: 4.1rem;
+      padding-block-start: 5.5rem;
     }
   }
 
   @media screen and (width >= 80rem) {
     & {
-      padding-block-start: 8.4rem;
+      padding-block-start: 9.9rem;
     }
   }
 }
@@ -75,7 +75,7 @@
 }
 
 .root {
-  margin-block-start: 5.3rem;
+  margin-block-start: 5.2rem;
 
   & h1 {
     font: var(--heading-medium);

@@ -3,4 +3,4 @@
 
 npm test
 npx lint-staged
-npx stylelint "**/*.css" --allow-empty-input
+npx stylelint "**/*.css" --allow-empty-input --cache
