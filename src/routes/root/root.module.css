@@ -1,19 +1,24 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding-block-start: 2.5rem;
+.root {
+  padding-top: 0.6rem;
 
   @media screen and (width >= 48rem) {
     & {
-      padding-block-start: 5.5rem;
+      padding-top: 3.9rem;
     }
   }
 
   @media screen and (width >= 80rem) {
     & {
-      padding-block-start: 9.9rem;
+      padding-top: 8.1rem;
     }
   }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 6rem;
+  align-items: center;
 }
 
 .testTitle {
@@ -74,8 +79,8 @@
   }
 }
 
-.root {
-  margin-block-start: 5.2rem;
+.rootPage {
+  margin-block-start: 3.6rem;
 
   & h1 {
     font: var(--heading-medium);
@@ -97,7 +102,7 @@
 
   @media screen and (width >= 48rem) {
     & {
-      margin-block-start: 5.9rem;
+      margin-block-start: 4.4rem;
     }
 
     & h1 {
@@ -115,7 +120,7 @@
     & {
       display: grid;
       grid-template-columns: 1fr 56.4rem;
-      margin-block-start: 9.9rem;
+      margin-block-start: 8.2rem;
     }
 
     & p {

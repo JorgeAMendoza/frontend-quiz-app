@@ -25,7 +25,7 @@ export const Root = () => {
   }, [pathname, testName])
 
   return (
-    <div className={utilStyle.container}>
+    <div className={`${utilStyle.container} ${style.root}`}>
       <header className={style.header}>
         <div className={style.testTitle}>
           {testName ? (
@@ -39,7 +39,7 @@ export const Root = () => {
       </header>
       <main>
         {pathname === '/' ? (
-          <div className={style.root}>
+          <div className={style.rootPage}>
             <div>
               <h1>
                 Welcome to the
