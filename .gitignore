@@ -24,3 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 pixel-perfect
+.stylelintcache
