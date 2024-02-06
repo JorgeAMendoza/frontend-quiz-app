@@ -23,7 +23,6 @@ export const Test = () => {
           currentQuestion: 1,
         }}
       >
-        <div>status bar</div>
         <Outlet />
       </TestDataContextProvider>
     </main>

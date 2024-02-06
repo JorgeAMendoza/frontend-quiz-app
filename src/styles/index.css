@@ -18,8 +18,10 @@
   --heading-medium: 500 3.6rem/1 'Rubik', sans-serif;
   --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
   --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
+  --text-medium: 400 1.8rem/1 'Rubik', sans-serif;
   --text-medium-semi-bold: 500 1.8rem/1.5 'Rubik', sans-serif;
-  --text-regular-italic: italic 400 1.4rem/1 5 'Rubik', sans-serif;
+  --text-regular-italic: italic 400 1.4rem/1.5 'Rubik', sans-serif;
+  --question: 500 2rem/1.25 'Rubik', sans-serif;
 
   /* breakpoints */
   --desktop-break: 90rem;
@@ -55,6 +57,7 @@ body[data-theme='dark'] {
   --accent-color: var(--light-bluish);
   --box-shadow-color: #313e5114;
   --progress-bar-background: var(--navy);
+  --error-text: var(--white);
 
   background: var(--dark-navy)
     url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
@@ -82,6 +85,7 @@ body[data-theme='light'] {
   --accent-color: var(--gray-navy);
   --box-shadow-color: #8fa0c114;
   --progress-bar-background: var(--white);
+  --error-text: var(--red);
 
   background: var(--light-gray)
     url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
