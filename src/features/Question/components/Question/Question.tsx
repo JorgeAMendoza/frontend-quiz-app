@@ -2,6 +2,9 @@ import { useKeyboardNav } from '@/hooks/useKeyboardNav'
 import { useTestData } from '@/routes/Test/context/useTestData'
 import { useEffect, useState } from 'react'
 import { ProgressBar } from '../ProgressBar'
+import style from './question.module.css'
+import iconCorrect from '@assets/images/icon-correct.svg'
+import iconIncorrect from '@assets/images/icon-incorrect.svg'
 
 interface QuestionProps {
   question: string
@@ -52,20 +55,20 @@ export const Question = ({
 
   return (
     <>
-      <div>
-        <div>
+      <div className={style.question}>
+        <div className={style.questionTitle}>
           <p>{testStatus}</p>
           <h1 data-cy="questionText">{question}</h1>
         </div>
-        <div>
+        <div className={style.progressBar}>
           <ProgressBar />
         </div>
       </div>
       <div ref={ref}>
-        <ul data-cy="answerOptions">
+        <ul data-cy="answerOptions" className={style.answerList}>
           {choices.map((choice, index) => {
             return (
-              <li key={choice}>
+              <li key={choice} className={style.answerChoice}>
                 <button
                   data-selected={choice === userChoice}
                   data-correct={isCorrect !== null && choice === answer}
@@ -73,13 +76,14 @@ export const Question = ({
                   type="button"
                   onClick={() => {
                     setUserChoice(choice)
+                    setSelectMessage('')
                   }}
                   disabled={isCorrect !== null}
                 >
-                  <span>
-                    {String.fromCharCode(97 + index)}
-                    {choice}
-                  </span>
+                  <span>{String.fromCharCode(97 + index)}</span>
+                  <p>{choice}</p>
+                  <img src={iconCorrect} alt="" />
+                  <img src={iconIncorrect} alt="" />
                 </button>
               </li>
             )
@@ -89,6 +93,7 @@ export const Question = ({
           id="submitOrNext"
           data-cy="submitOrNext"
           type="button"
+          className={style.submitButton}
           onClick={() => {
             if (isCorrect === true || isCorrect === false) {
               nextPageNav()
@@ -108,9 +113,14 @@ export const Question = ({
             }
           }}
         >
-          {isCorrect === null ? 'Submit' : 'Next Question'}
+          {isCorrect === null ? 'Submit Answer' : 'Next Question'}
         </button>
-        {selectMessage ? <p>{selectMessage}</p> : null}
+        {selectMessage ? (
+          <p className={style.selectMessage}>
+            <img src={iconIncorrect} alt="" />
+            {selectMessage}
+          </p>
+        ) : null}
       </div>
     </>
   )

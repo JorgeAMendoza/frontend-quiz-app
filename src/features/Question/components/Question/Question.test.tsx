@@ -59,7 +59,7 @@ test('should render the question', () => {
 test('should be able to select a choice', async () => {
   const { user } = renderQuestion()
   const choiceButton = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
   await user.click(choiceButton)
   expect(choiceButton.getAttribute('data-selected')).toBe('true')
@@ -67,18 +67,18 @@ test('should be able to select a choice', async () => {
 
 test('should not display "next question" button if no initial choice is selected', async () => {
   const { user } = renderQuestion()
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
   await user.click(submitButton)
   screen.getByText('Please select an answer')
-  expect(submitButton?.textContent).toBe('Submit')
+  expect(submitButton?.textContent).toBe('Submit Answer')
 })
 
 test('should insert data attribute on the correct selected choice', async () => {
   const { user } = renderQuestion()
   const choiceButton = screen.getByRole('button', {
-    name: `b${questionData.options[1]}`,
+    name: `b ${questionData.options[1]}`,
   })
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
   await user.click(choiceButton)
   await user.click(submitButton)
   expect(choiceButton.getAttribute('data-selected')).toBe('true')
@@ -89,18 +89,18 @@ test('should insert data attribute on the correct selected choice', async () => 
 test('should insert data attribute to the incorrect selected choice', async () => {
   const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
   const optionB = screen.getByRole('button', {
-    name: `b${questionData.options[1]}`,
+    name: `b ${questionData.options[1]}`,
   })
   const optionC = screen.getByRole('button', {
-    name: `c${questionData.options[2]}`,
+    name: `c ${questionData.options[2]}`,
   })
   const optionD = screen.getByRole('button', {
-    name: `d${questionData.options[3]}`,
+    name: `d ${questionData.options[3]}`,
   })
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
   await user.click(optionA)
   await user.click(submitButton)
   expect(optionA.getAttribute('data-selected')).toBe('true')
@@ -114,19 +114,19 @@ test('should insert data attribute to the incorrect selected choice', async () =
 test('should disable all after an answer is submitted', async () => {
   const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
   const optionB = screen.getByRole('button', {
-    name: `b${questionData.options[1]}`,
+    name: `b ${questionData.options[1]}`,
   })
   const optionC = screen.getByRole('button', {
-    name: `c${questionData.options[2]}`,
+    name: `c ${questionData.options[2]}`,
   })
   const optionD = screen.getByRole('button', {
-    name: `d${questionData.options[3]}`,
+    name: `d ${questionData.options[3]}`,
   })
 
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
   await user.click(optionA)
   await user.click(submitButton)
   expect(optionA.getAttribute('disabled')).toBe('')
@@ -138,13 +138,13 @@ test('should disable all after an answer is submitted', async () => {
 test('should focus on next element with "ArrowDown" and "ArrowRight" key', async () => {
   const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
   const optionB = screen.getByRole('button', {
-    name: `b${questionData.options[1]}`,
+    name: `b ${questionData.options[1]}`,
   })
   const optionC = screen.getByRole('button', {
-    name: `c${questionData.options[2]}`,
+    name: `c ${questionData.options[2]}`,
   })
 
   optionA.focus()
@@ -158,13 +158,13 @@ test('should focus on next element with "ArrowDown" and "ArrowRight" key', async
 test('should focus on previous element with "ArrowUp" and "ArrowLeft" key', async () => {
   const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
   const optionB = screen.getByRole('button', {
-    name: `b${questionData.options[1]}`,
+    name: `b ${questionData.options[1]}`,
   })
   const optionC = screen.getByRole('button', {
-    name: `c${questionData.options[2]}`,
+    name: `c ${questionData.options[2]}`,
   })
 
   optionC.focus()
@@ -178,9 +178,9 @@ test('should focus on previous element with "ArrowUp" and "ArrowLeft" key', asyn
 test('should focus on last element when "ArrowUp" is pressed on first element', async () => {
   const { user } = renderQuestion()
   const optionA = screen.getByRole('button', {
-    name: `a${questionData.options[0]}`,
+    name: `a ${questionData.options[0]}`,
   })
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
 
   optionA.focus()
   await user.keyboard('[ArrowUp]')
@@ -190,9 +190,9 @@ test('should focus on last element when "ArrowUp" is pressed on first element', 
 test('should focus on first element when "ArrowDown" is pressed on last element', async () => {
   const { user } = renderQuestion()
   const optionD = screen.getByRole('button', {
-    name: `d${questionData.options[3]}`,
+    name: `d ${questionData.options[3]}`,
   })
-  const submitButton = screen.getByRole('button', { name: 'Submit' })
+  const submitButton = screen.getByRole('button', { name: 'Submit Answer' })
 
   optionD.focus()
   await user.keyboard('[ArrowDown]')
