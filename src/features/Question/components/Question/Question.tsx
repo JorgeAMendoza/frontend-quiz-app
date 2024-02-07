@@ -117,12 +117,13 @@ export const Question = ({
           >
             {isCorrect === null ? 'Submit Answer' : 'Next Question'}
           </button>
-          {selectMessage ? (
-            <p className={style.selectMessage}>
-              <img src={iconIncorrect} alt="" />
-              {selectMessage}
-            </p>
-          ) : null}
+          <p
+            className={style.selectMessage}
+            data-visible={selectMessage ? true : false}
+          >
+            <img src={iconIncorrect} alt="" />
+            {selectMessage}
+          </p>
         </div>
       </section>
     </>
