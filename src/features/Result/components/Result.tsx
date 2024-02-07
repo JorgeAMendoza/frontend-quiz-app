@@ -33,6 +33,7 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
         <button
           data-cy="playAgain"
           type="button"
+          className={style.playAgainButton}
           onClick={() => {
             localStorage.removeItem('answerSheet')
             localStorage.removeItem('currentQuestion')
@@ -40,7 +41,7 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
             navigate('/', { replace: true })
           }}
         >
-          Play again
+          Play Again
         </button>
       </div>
     </>
