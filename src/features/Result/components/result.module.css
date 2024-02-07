@@ -1,0 +1,35 @@
+.result {
+  margin-block-start: 3.5rem;
+
+  & h1 {
+    font: var(--heading-medium);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--text-color);
+  }
+}
+
+.testStats {
+  background-color: var(--stat-background);
+  color: var(--text-color);
+  margin-block-start: 3.5rem;
+  border-radius: 12px;
+  padding: 2em 0;
+}
+
+.testName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testResults {
+  margin-block-start: 0.5rem;
+  text-align: center;
+  line-height: 1.3;
+
+  & strong {
+    font-size: 8.8rem;
+  }
+}

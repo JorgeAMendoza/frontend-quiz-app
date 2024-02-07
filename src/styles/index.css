@@ -58,6 +58,7 @@ body[data-theme='dark'] {
   --box-shadow-color: #313e5114;
   --progress-bar-background: var(--navy);
   --error-text: var(--white);
+  --stat-background: var(--navy);
 
   background: var(--dark-navy)
     url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
@@ -86,6 +87,7 @@ body[data-theme='light'] {
   --box-shadow-color: #8fa0c114;
   --progress-bar-background: var(--white);
   --error-text: var(--red);
+  --stat-background: var(--white);
 
   background: var(--light-gray)
     url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
