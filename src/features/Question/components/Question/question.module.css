@@ -4,9 +4,23 @@
   @media screen and (width >= 48rem) {
     margin-block-start: 4.5rem;
   }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 8.3rem;
+      display: grid;
+      grid-template-columns: 46.5rem 56.4rem;
+      justify-content: space-between;
+      grid-template-areas:
+        'questionTitle answerList'
+        'questionTitle answerList';
+    }
+  }
 }
 
 .questionTitle {
+  grid-area: questionTitle;
+
   & h1 {
     font: var(--question);
     color: var(--text-color);
@@ -37,13 +51,26 @@
   @media screen and (width >= 48rem) {
     margin-block-start: 3.8rem;
   }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 16.2rem;
+    }
+  }
 }
 
 .answerList {
+  grid-area: answerList;
   margin-block-start: 4.1rem;
 
   @media screen and (width >= 48rem) {
     margin-block-start: 6.4rem;
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 0;
+    }
   }
 }
 
@@ -169,6 +196,17 @@
       min-width: 5.6rem;
       border-radius: 12px;
       font-size: 2.8rem;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & button {
+      min-height: 9.2rem;
+      padding-inline-start: 2.1rem;
+    }
+
+    & button span {
+      border-radius: 8px;
     }
   }
 }
