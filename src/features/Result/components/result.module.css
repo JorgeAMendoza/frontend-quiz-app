@@ -1,0 +1,168 @@
+.result {
+  margin-block-start: 3.5rem;
+
+  & h1 {
+    font: var(--heading-medium);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--text-color);
+    grid-area: heading;
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      margin-block-start: 3.9rem;
+    }
+
+    & h1 {
+      font-size: 6.4rem;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 8.5rem;
+      display: grid;
+      grid-template-columns: auto 56.4rem;
+      grid-template-areas:
+        'heading result'
+        'heading playAgain';
+    }
+
+    & h1 {
+      line-height: 1.1;
+    }
+  }
+}
+
+.testStats {
+  grid-area: result;
+  background-color: var(--stat-background);
+  min-height: 24.2rem;
+  color: var(--text-color);
+  margin-block-start: 3.6rem;
+  border-radius: 12px;
+  padding-block-start: 2em;
+
+  @media screen and (width >= 48rem) {
+    & {
+      margin-block-start: 5.4rem;
+      min-height: 38.8rem;
+      border-radius: 24px;
+      padding-block-start: 3em;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 0;
+    }
+  }
+}
+
+.testName {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+  & span {
+    width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & span:has(img[src*='HTML']) {
+    background-color: #fff1e9;
+  }
+
+  & span:has(img[src*='CSS']) {
+    background-color: #e0fdef;
+  }
+
+  & span:has(img[src*='JavaScript']) {
+    background-color: #ebf0ff;
+  }
+
+  & span:has(img[src*='Accessibility']) {
+    background-color: #f6e7ff;
+  }
+
+  & span > img {
+    width: 2.9rem;
+  }
+
+  & p {
+    font: var(--text-medium-semi-bold);
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      gap: 2.4rem;
+    }
+
+    & span {
+      width: 5.6rem;
+    }
+
+    & span img {
+      width: 4rem;
+    }
+
+    & p {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+.testResults {
+  margin-block-start: 0.5rem;
+  text-align: center;
+  font: var(--text-medium);
+  line-height: 1.27;
+  color: var(--accent-color);
+
+  & strong {
+    font-size: 8.8rem;
+    color: var(--text-color);
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      font-size: 2.4rem;
+      margin-block-start: 2rem;
+    }
+
+    & strong {
+      font-size: 14.4rem;
+    }
+  }
+}
+
+.playAgainButton {
+  background-color: var(--purple);
+  width: 100%;
+  min-height: 5.6rem;
+  border-radius: 12px;
+  margin-block-start: 1.2rem;
+  font: var(--text-medium-semi-bold);
+  box-shadow: 0 16px 40px 0 #313e5114;
+  grid-area: playAgain;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--purple), #fff 50%);
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      min-height: 9.2rem;
+      margin-block-start: 3.2rem;
+      border-radius: 24px;
+      font-size: 2.8rem;
+    }
+  }
+}

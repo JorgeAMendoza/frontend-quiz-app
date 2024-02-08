@@ -1,5 +1,6 @@
 import type { Answer } from '@/routes/Test/context/reducer'
 import { useNavigate } from 'react-router-dom'
+import style from './result.module.css'
 
 interface ResultProps {
   testType: string
@@ -12,21 +13,27 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
   const navigate = useNavigate()
   return (
     <>
-      <div>
+      <div className={style.result}>
         <h1>
-          Quiz completed <span>You Scored...</span>
+          Quiz completed <br />
+          <strong>You scored...</strong>
         </h1>
-        <div>
-          <div>
-            <img src={'/dynamic-render-of-image'} alt="" />
+        <div className={style.testStats}>
+          <div className={style.testName}>
+            <span>
+              <img src={`/test-icons/${testType}.svg`} alt="" />
+            </span>
             <p>{testType}</p>
           </div>
-          <p>
-            <span>{correctAnswers}</span> out of {totalQuestions}
+          <p className={style.testResults}>
+            <strong>{correctAnswers}</strong>
+            <br /> out of {totalQuestions}
           </p>
         </div>
         <button
+          data-cy="playAgain"
           type="button"
+          className={style.playAgainButton}
           onClick={() => {
             localStorage.removeItem('answerSheet')
             localStorage.removeItem('currentQuestion')
@@ -34,7 +41,7 @@ export const Result = ({ testType, answerSheet }: ResultProps) => {
             navigate('/', { replace: true })
           }}
         >
-          Play again
+          Play Again
         </button>
       </div>
     </>

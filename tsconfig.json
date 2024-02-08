@@ -25,7 +25,8 @@
       "@features/*": ["src/features/*"],
       "@assets/*": ["src/assets/*"],
       "@router/*": ["src/routes/*"],
-      "@test/*": ["./test/*"]
+      "@test/*": ["./test/*"],
+      "@styles/*": ["src/styles/*"]
     }
   },
   "include": ["src"],

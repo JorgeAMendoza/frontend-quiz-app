@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light dark;
+
+  --purple: #a729f5;
+  --dark-navy: #313e51;
+  --navy: #3b4d66;
+  --gray-navy: #626c7f;
+  --light-bluish: #abc1e1;
+  --light-gray: #f4f6fa;
+  --white: #fff;
+  --green: #26d782;
+  --red: #ee5454;
+
+  /* fonts and headings */
+  --heading-main: bold 14.4rem/1 'Rubik', sans-serif;
+  --heading-large: bold 6.4rem/1.11 'Rubik', sans-serif;
+  --heading-large-regular: 500 4rem/1 'Rubik', sans-serif;
+  --heading-medium: 500 3.6rem/1 'Rubik', sans-serif;
+  --heading-small: bold 1.75rem/1 'Rubik', sans-serif;
+  --text-regular: 400 0.75rem/1.5 'Rubik', sans-serif;
+  --text-medium: 400 1.8rem/1 'Rubik', sans-serif;
+  --text-medium-semi-bold: 500 1.8rem/1.5 'Rubik', sans-serif;
+  --text-regular-italic: italic 400 1.4rem/1.5 'Rubik', sans-serif;
+  --question: 500 2rem/1.25 'Rubik', sans-serif;
+
+  /* breakpoints */
+  --desktop-break: 90rem;
+  --tablet-break: 48rem;
+  --mobile-break: 25.5rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  --progress-bar: var(--purple);
+
+  font: var(--text-regular);
+  line-height: 1.5;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+body[data-theme='dark'] {
+  --text-color: var(--white);
+  --option-background: var(--navy);
+  --theme-icon: var(--white);
+  --accent-color: var(--light-bluish);
+  --box-shadow-color: #313e5114;
+  --progress-bar-background: var(--navy);
+  --error-text: var(--white);
+  --stat-background: var(--navy);
+
+  background: var(--dark-navy)
+    url('../assets/images/pattern-background-mobile-dark.svg') no-repeat;
+
+  /* we can place the other queries here */
+  @media screen and (width >= 48rem) {
+    & {
+      background: var(--dark-navy)
+        url('../assets/images/pattern-background-tablet-dark.svg') no-repeat;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      background: var(--dark-navy)
+        url('../assets/images/pattern-background-desktop-dark.svg') no-repeat;
+    }
+  }
+}
+
+body[data-theme='light'] {
+  --text-color: var(--dark-navy);
+  --option-background: var(--white);
+  --theme-icon: var(--gray-navy);
+  --accent-color: var(--gray-navy);
+  --box-shadow-color: #8fa0c114;
+  --progress-bar-background: var(--white);
+  --error-text: var(--red);
+  --stat-background: var(--white);
+
+  background: var(--light-gray)
+    url('../assets/images/pattern-background-mobile-light.svg') no-repeat;
+
+  @media screen and (width >= 48rem) {
+    & {
+      background: var(--light-gray)
+        url('../assets/images/pattern-background-tablet-light.svg') no-repeat;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      background: var(--light-gray)
+        url('../assets/images/pattern-background-desktop-light.svg') no-repeat;
+    }
+  }
+}
+
+img,
+svg,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+[id] {
+  scroll-margin-top: 2rem;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root {
+  isolation: isolate;
+}

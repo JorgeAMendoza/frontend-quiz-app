@@ -1,0 +1,84 @@
+.themeToggle {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+
+  @media screen and (width >= 48rem) {
+    & {
+      gap: 1.4rem;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      gap: 1.6rem;
+    }
+  }
+}
+
+.inputLabel {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  &:last-of-type {
+    flex-direction: row-reverse;
+  }
+
+  & svg {
+    width: 1.5rem;
+  }
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    left: 2.5rem;
+    z-index: 1;
+  }
+
+  &:last-of-type input {
+    left: -2.5rem;
+  }
+
+  @media screen and (width >= 48rem) {
+    & svg {
+      width: 2.6rem;
+    }
+  }
+}
+
+.toggle {
+  min-width: 3.2rem;
+  height: 2rem;
+  border-radius: 11px;
+  background-color: var(--purple);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: transform 0.3s;
+    top: 0.4rem;
+    left: 0.4rem;
+  }
+
+  &[data-light='false']::before {
+    transform: translateX(100%);
+  }
+
+  @media screen and (width >= 48rem) {
+    & {
+      min-width: 4.8rem;
+      height: 2.8rem;
+      border-radius: 15px;
+    }
+
+    &::before {
+      width: 2rem;
+    }
+  }
+}

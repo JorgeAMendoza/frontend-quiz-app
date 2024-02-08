@@ -7,8 +7,12 @@ export const TestQuestion = () => {
   const { testData, testDataDispatch } = useTestData()
   const navigate = useNavigate()
 
-  if (!questionNumber || Number(questionNumber) < 1) {
-    throw new Error('Question number is not defined')
+  if (
+    !questionNumber ||
+    Number(questionNumber) < 1 ||
+    isNaN(Number(questionNumber))
+  ) {
+    throw new Error('Invalid Question')
   }
 
   if (Number(questionNumber) > testData.currentQuestion) {

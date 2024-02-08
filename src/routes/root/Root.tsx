@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom'
+import { Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import { LoaderReturn } from './loader'
 import { useKeyboardNav } from '@/hooks/useKeyboardNav'
+import { ThemeToggle } from '@/features/ThemeToggle'
+import style from './root.module.css'
+import utilStyle from '@/styles/utils/util.module.css'
+import { TestChoice } from '@/components'
 
 export const Root = () => {
   const { quizNames } = useLoaderData() as LoaderReturn
@@ -21,43 +25,49 @@ export const Root = () => {
   }, [pathname, testName])
 
   return (
-    <>
-      <header>
-        <p>{testName}</p>
-        <div>theme toggle here</div>
+    <div className={`${utilStyle.container} ${style.root}`}>
+      <header className={style.header}>
+        <div className={style.testTitle}>
+          {testName ? (
+            <span>
+              <img src={`/test-icons/${testName}.svg`} alt="" />
+            </span>
+          ) : null}
+          <p>{testName}</p>
+        </div>
+        <ThemeToggle />
       </header>
       <main>
         {pathname === '/' ? (
-          <>
+          <div className={style.rootPage}>
             <div>
               <h1>
-                Welcome to the <strong>Frontend Quiz!</strong>
+                Welcome to the
+                <br /> <strong>Frontend Quiz!</strong>
               </h1>
-              <p>Pick a subjcet to get started</p>
+              <p>Pick a subject to get started</p>
             </div>
             <div
               role="region"
               aria-label="select a quiz to get started"
               ref={ref}
             >
-              <ul id="testList">
+              <ul id="testList" data-cy="testList" className={style.testList}>
                 {quizNames.map((quizName) => (
-                  <li key={quizName}>
-                    <Link
-                      to={`/${quizName}/question/1`}
-                      onClick={() => setTestName(quizName)}
-                    >
-                      {quizName}
-                    </Link>
-                  </li>
+                  <TestChoice
+                    key={quizName}
+                    testName={quizName}
+                    setTestName={setTestName}
+                    testIcon={`/test-icons/${quizName}.svg`}
+                  />
                 ))}
               </ul>
             </div>
-          </>
+          </div>
         ) : (
           <Outlet />
         )}
       </main>
-    </>
+    </div>
   )
 }
