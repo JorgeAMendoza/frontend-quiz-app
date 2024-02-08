@@ -6,7 +6,7 @@ export const TestError = () => {
   return (
     <div className={style.error}>
       <h1>Something went wrong!</h1>
-      <p>{routerError.message}</p>
+      <p>{routerError.message ? routerError.message : 'Invalid Route'}</p>
 
       <Link to="/" data-cy="homeLink">
         Go Home

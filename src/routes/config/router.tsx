@@ -5,15 +5,14 @@ import { Test } from '../Test/Test'
 import { testLoader } from '../Test/loader'
 import { TestQuestion } from '../TestQuestion/TestQuestion'
 import { Results } from '../result/Results'
-import { TestError } from '../Test/components/Error'
-import { RootError } from '../root/components/RootError'
+import { TestError } from '../error/Error'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     loader: rootLoader,
-    errorElement: <RootError />,
+    errorElement: <TestError />,
     children: [
       {
         path: '/:test',
