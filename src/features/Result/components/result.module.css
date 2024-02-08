@@ -7,6 +7,7 @@
     font-weight: 300;
     line-height: 1.2;
     color: var(--text-color);
+    grid-area: heading;
   }
 
   @media screen and (width >= 48rem) {
@@ -18,9 +19,25 @@
       font-size: 6.4rem;
     }
   }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 8.5rem;
+      display: grid;
+      grid-template-columns: auto 56.4rem;
+      grid-template-areas:
+        'heading result'
+        'heading playAgain';
+    }
+
+    & h1 {
+      line-height: 1.1;
+    }
+  }
 }
 
 .testStats {
+  grid-area: result;
   background-color: var(--stat-background);
   min-height: 24.2rem;
   color: var(--text-color);
@@ -34,6 +51,12 @@
       min-height: 38.8rem;
       border-radius: 24px;
       padding-block-start: 3em;
+    }
+  }
+
+  @media screen and (width >= 80rem) {
+    & {
+      margin-block-start: 0;
     }
   }
 }
@@ -128,6 +151,7 @@
   margin-block-start: 1.2rem;
   font: var(--text-medium-semi-bold);
   box-shadow: 0 16px 40px 0 #313e5114;
+  grid-area: playAgain;
 
   &:hover {
     background-color: color-mix(in srgb, var(--purple), #fff 50%);
