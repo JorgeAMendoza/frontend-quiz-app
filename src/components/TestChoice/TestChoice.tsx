@@ -14,16 +14,15 @@ export const TestChoice = ({
 }: TestChoiceProps) => {
   return (
     <li className={style.testChoice}>
-      <span className={style.testIcon}>
-        <img src={testIcon} alt="" />
-      </span>
-
       <Link
         to={`/${testName}/question/1`}
         onClick={() => setTestName(testName)}
         className={style.testName}
       >
-        {testName}
+        <span className={style.testIcon}>
+          <img src={testIcon} alt="" />
+        </span>
+        <span>{testName}</span>
       </Link>
     </li>
   )

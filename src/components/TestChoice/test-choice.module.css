@@ -1,21 +1,32 @@
 .testChoice {
-  background-color: var(--option-background);
-  border-radius: 12px;
-  height: 6.4rem;
-  display: flex;
-  align-items: center;
-  padding: 0 0.75em;
-  box-shadow: 0 16px 40px 0 var(--box-shadow-color);
+  & a {
+    width: 100%;
+    background-color: var(--option-background);
+    border-radius: 12px;
+    height: 6.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1.7rem;
+    padding-inline-start: 1.1rem;
+    box-shadow: 0 16px 40px 0 var(--box-shadow-color);
+    outline: transparent;
+  }
+
+  & a:hover,
+  & a:focus-visible {
+    box-shadow: 0 0 0 3px var(--purple);
+  }
 
   &:not(:last-of-type) {
     margin-block-end: 1.2rem;
   }
 
   @media screen and (width >= 48rem) {
-    & {
+    & a {
       border-radius: 24px;
       height: 8rem;
       padding: 0 1.2rem;
+      gap: 3.1rem;
     }
 
     &:not(:last-of-type) {
@@ -24,15 +35,15 @@
   }
 
   @media screen and (width >= 80rem) {
-    & {
+    & a {
       height: 9.6rem;
-      padding: 0 1.2em;
+      padding-inline-start: 0.7em;
     }
   }
 }
 
 .testIcon {
-  border-radius: 8px;
+  border-radius: 6px;
   width: 4rem;
   aspect-ratio: 1/1;
   display: inline-flex;
@@ -59,8 +70,10 @@
   }
 
   @media screen and (width >= 48rem) {
-    border-radius: 12px;
-    width: 5.6rem;
+    & {
+      border-radius: 8px;
+      width: 5.6rem;
+    }
 
     &:has(img[src*='HTML']) {
       background-color: #fff1e9;
@@ -88,10 +101,8 @@
   color: var(--text-color);
   text-decoration: none;
   font: var(--text-medium-semi-bold);
-  margin-inline-start: 1.6rem;
 
   @media screen and (width >= 48rem) {
     font-size: 2.8rem;
-    margin-inline-start: 3.1rem;
   }
 }
