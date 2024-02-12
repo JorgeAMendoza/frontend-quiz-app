@@ -1,8 +1,10 @@
 # Frontend Quiz
 
+<div align="center"><img src="./showcase.gif" width=700 alt="image of desktop preview of the frontend quiz"></div>
+
 Design, assets, and requirements provided by [FrontEndMentors](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU)
 
-The project goal is to create a fucntional quiz application that can be completed from beginning to end, with the final results displayed upon quiz completion. The appliction should allow users to select between different choices, restart the test when completed, and implement a responsive design so that users on any device can comfortably take the quiz. The requirements also called for implementing key-board navigation for accessibility purposes and providing a light and dark theme.
+The project goal is to create a functional front-end quiz application that can be completed from beginning to end, with the final results displayed upon quiz completion. The appliction should allow users to select between different choices, restart the test when completed, and implement a responsive design so that users on any device can comfortably take the quiz. The requirements also called for implementing key-board navigation for accessibility purposes and providing a light and dark theme.
 
 This `README.md` will dicuss the technology used, the challenges faced, and my thought process while developing this web application. Feel free to access a [live version of the application here].
 
