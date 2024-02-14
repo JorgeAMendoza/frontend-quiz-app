@@ -103,7 +103,8 @@ body[data-theme='light'] {
   @media screen and (width >= 80rem) {
     & {
       background: var(--light-gray)
-        url('../assets/images/pattern-background-desktop-light.svg') no-repeat;
+        url('../assets/images/pattern-background-desktop-light.svg') no-repeat
+        top/100%;
     }
   }
 }
