@@ -74,7 +74,8 @@ body[data-theme='dark'] {
   @media screen and (width >= 80rem) {
     & {
       background: var(--dark-navy)
-        url('../assets/images/pattern-background-desktop-dark.svg') no-repeat;
+        url('../assets/images/pattern-background-desktop-dark.svg') no-repeat
+        top/100%;
     }
   }
 }
